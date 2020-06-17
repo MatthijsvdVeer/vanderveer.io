@@ -31,6 +31,7 @@ const Bio = () => {
             twitter
             github
             stackOverflow
+            linkedIn
           }
         }
       }
@@ -61,9 +62,10 @@ const Bio = () => {
       <p>
         Written by <strong>{author.name}</strong> {author.summary}
         {` `}
-        He infrequently tweets on <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>, 
-        occasionaly pushes code to <a href={`${social.github}`}>GitHub</a> and often answers IoT related
-        questions on <a href={`${social.stackOverflow}`}>StackOverflow</a>.
+        He infrequently tweets on <a href={social.twitter}>Twitter</a>, 
+        occasionaly pushes code to <a href={social.github}>GitHub</a> and often answers IoT related
+        questions on <a href={social.stackOverflow}>StackOverflow</a>. 
+        Feel free to connect on <a href={social.linkedIn}>LinkedIn</a>.
       </p>
     </div>
   )
