@@ -9,6 +9,8 @@ module.exports = {
     siteUrl: `https://www.vanderveer.io/`,
     social: {
       twitter: `MatthijsvdVeer`,
+      github: `https://github.com/MatthijsvdVeer`,
+      stackOverflow: `https://stackoverflow.com/users/8800237/matthijs-van-der-veer`
     },
   },
   plugins: [
