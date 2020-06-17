@@ -18,12 +18,16 @@ But wait, there's more! Gatsby has a great starter project to create blogs with.
     But wait, there's more! Gatsby has a great starter project to create blogs with. 
     [The Gatsby Starter Blog][4] contains everything you need to get started on your blog.
 
-So now when I write a blog post, I write it where I write most things: Visual Studio Code. And when I'm finished, I shoot myself a pull request on GitHub. When you create a Static Web App, Azure will add a GitHub Action to your repository that does all the hard lifting. When I make a new pull request, Azure spins up a new instance of my website so I can review my changes before closing the pull request. **Site deployed**
+So now when I write a blog post, I write it where I write most things: Visual Studio Code. And when I'm finished, I shoot myself a pull request on GitHub. When you create a Static Web App, Azure will add a GitHub Action to your repository that does all the hard lifting. When I make a new pull request, Azure spins up a new instance of my website so I can review my changes before closing the pull request.
 
-You can find the code of this blog [here][5]
+![A pull request for Azure Static Web App][pull-request]
+
+Merging the pull request results in an automatic deployment to your Azure Static Web App! Being able to use the tools I use in my everyday job to write blog posts feels really good! You can find the code of this blog [here][5]
 
 [1]: https://ghost.org/
 [2]: https://azure.microsoft.com/en-us/services/app-service/static/#overview
 [3]: https://docs.microsoft.com/en-us/learn/modules/create-deploy-static-webapp-gatsby-app-service/
 [4]: https://github.com/gatsbyjs/gatsby-starter-blog
 [5]: https://github.com/MatthijsvdVeer/vanderveer.io
+
+[pull-request]: ./pull-request.png
