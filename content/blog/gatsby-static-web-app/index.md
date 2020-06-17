@@ -6,6 +6,7 @@ description: Building a Gatsby powered blog on Azure Static Web Apps for free.
 
 This blog has seen many iterations on different platforms. It started on Wordpress, which I chose because it took little effort to maintain the solution. But having to pay hosting costs while I have perfectly good Azure credits that remain unused didn't sit well with me. Hosting Wordpress yourself becomes very expensive though, so I decided on [Ghost][1], a NodeJS powered blogging engine.
 
+## Build 2020
 I simply hosted Ghost in an App Service Plan on Azure for a while and all was good, but then Build 2020 came along. At Build, there was an announcement for Azure Static Web Apps and it promised serverless hosting with seamless integration with GitHub. Also, Azure Static Web Apps is free during this preview. All I needed now was to find a platform to build my blog with that allowed to be compiled into a static package.
 
 I asked some of the front end developers at work and Gatsby was the platform that was mentioned without fail. I figured I would probably have to do a ton of learning because I had never used Gatsby, but then I found out Microsoft Learn already had me covered. I followed the steps on [Create and publish a static web app with Gatsby and Azure Static Web Apps][3] and learned the basics about creating a site ready to deploy to a Static Web App.
