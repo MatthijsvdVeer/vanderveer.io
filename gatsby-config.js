@@ -8,7 +8,10 @@ module.exports = {
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://www.vanderveer.io/`,
     social: {
-      twitter: `MatthijsvdVeer`,
+      twitter: `https://twitter.com/MatthijsvdVeer`,
+      github: `https://github.com/MatthijsvdVeer`,
+      stackOverflow: `https://stackoverflow.com/users/8800237/matthijs-van-der-veer`,
+      linkedIn: `https://www.linkedin.com/in/matthijsvanderveer/`
     },
   },
   plugins: [
