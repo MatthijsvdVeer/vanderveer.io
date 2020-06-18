@@ -5,7 +5,7 @@ module.exports = {
       name: `Matthijs van der Veer`,
       summary: `who works as an IoT Specialist in Avanade's Digital Innovation Studio.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A blog by Matthijs van der Veer on Internet of Things, Microsoft Technology and gadgets.`,
     siteUrl: `https://www.vanderveer.io/`,
     social: {
       twitter: `https://twitter.com/MatthijsvdVeer`,
