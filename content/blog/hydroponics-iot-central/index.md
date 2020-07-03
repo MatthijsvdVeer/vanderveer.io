@@ -44,7 +44,7 @@ After that, you can go to devices and add a new device, make sure to select your
 ![Dashboard](./images/dashboard.png "Near real-time telemetry!")
 
 I had my device up and running just before one of the hottest weeks this year, I wonder if I'm going to grow anything in water that goes up to 28 degrees Celsius...
-![Analytics](./images/analysis.png "Analytics during a heatwave")
+![Analytics](./images/analytics.png "Analytics during a heatwave")
 
 ## What's next?
 There we go, data! While this will not make my plants die any less, at least I'm satisfied to make this device a little smarter. In the next project, I might add a relay to the pump so I can start and stop it from IoT Central. Now that I'm thinking about it, that might also be a good way to automate the starting and stopping based on a schedule! To be continued...
