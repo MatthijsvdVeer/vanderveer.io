@@ -1,12 +1,12 @@
 ---
 title: Integrating A Hydroponics Installation in IoT Central
 date: "2020-07-03T12:00:00.000Z"
-description: "Receiving telemetry from a simple hydroponics set up in IoT Central"
+description: "Receiving telemetry from a simple hydroponics set up in IoT Central using an ESP32, Arduino and some sensors."
 ---
 
 My plants die... a lot
 
-In an attempt to be able to grow something I bought [this little hydroponics set up][4] online. It arrived with all the needed accessories and I plugged it in right away. I don't know what I expected, but a huge wave of dissatisfaction rushed over me. Sure the pump works, but where is my data?! To remedy this lack of insight, I wanted to at least measure a few things so I could blame my apartment's environment in the inevitable event of plant extinction. Also, this month is #JulyOT, so CONNECT EVERYTHING!
+In an attempt to be able to grow something I bought [this little hydroponics set up][4] online. My plan is to grow some chili peppers, because my old ones died. It arrived with all the needed accessories and I plugged it in right away. I don't know what I expected, but a huge wave of dissatisfaction rushed over me. Sure the pump works, but where is my data?! To remedy this lack of insight, I wanted to at least measure a few things so I could blame my apartment's environment in the inevitable event of plant extinction. Also, this month is #JulyOT, so CONNECT EVERYTHING!
 
 ## Building the device
 If you're like me, you probably have an unlabeled box or boxes filled to the brim with sensors, wires and microcontrollers. If not, here are the parts I'm using:
