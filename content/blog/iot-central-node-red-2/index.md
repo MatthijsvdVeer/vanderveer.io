@@ -1,7 +1,10 @@
 ---
 title: Connecting Azure IoT Central and Node-Red on Raspberry Pi – Part 2
 date: "2019-06-08T12:00:00.000Z"
+description: "How to connect your Raspberry Pi with Node-Red to Azure IoT Central"
 ---
+
+> This post was written when there was no IoT Central plugin. Instead of following the post below, you can use [this module][1]
 
 This post is a continuation on part 1. In this post we are going to connect our Raspberry Pi to our IoT Central instance.
 
@@ -49,3 +52,5 @@ The last node needs no further configuration. I set my Inject node to loop by us
 Now when you Deploy your flow using the button in the top right, your device will send the temperature and humidity every 10 seconds. When you check your IoT Central again you’ll notice after a few minutes the graphs are populated.
 
 This is only the start of what’s possible with Azure IoT Central, but it makes a good jumping off point for more.
+
+[1]: https://techcommunity.microsoft.com/t5/azure-iot/node-red-connector-for-azure-iot-central/m-p/1605502
