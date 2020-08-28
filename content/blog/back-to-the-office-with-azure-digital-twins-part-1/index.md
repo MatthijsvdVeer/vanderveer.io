@@ -4,7 +4,7 @@ date: "2020-08-21T12:00:00.000Z"
 description: Getting The Office back to the office with Azure Digital Twins. In this post, we will explore the DTDL models that make up the office.
 ---
 
-Truth be told, this entire blog post series was inspired by my browsing of Thingiverse, looking to print something interesting. Somehow I stumbled onto a [3D model][1] of one of my favourite shows: The Office. It even included a floor plan! As I'm typing this blog post, I'm printing the "interesting half" of the Office, leaving out the restrooms and... Toby, which is fine. It occurred to me that Dunder Mifflin would also need a way to deal with the pandemic and how to use their office space. So I started to design a reservation system for my favourite company, built on top of Azure Digital Twins.
+Truth be told, this entire blog post series was inspired by my browsing of Thingiverse, looking to print something interesting. Somehow I stumbled onto a [3D model][1] of one of my favourite shows: The Office. It even included a floor plan! As I'm typing this blog post, I'm printing the "interesting half" of the Office, leaving out the restrooms and... Toby, which is fine. It occurred to me that Dunder Mifflin would also need a way to deal with the pandemic and how to use their office space. So I started to design a reservation system for my favourite company, built on top of Azure Digital Twins (ADT). This is in no way a tutorial, it's more of a journal where I discover the features of ADT.
 
 ![3D Print](./3d-print-office.png "17 hours into a 22 hour print")
 
