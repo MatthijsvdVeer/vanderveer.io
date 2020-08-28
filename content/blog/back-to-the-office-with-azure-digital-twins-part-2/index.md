@@ -30,7 +30,7 @@ At this point, I realised that while you can create entities using the Graph Exp
 ## Import/export
 This is also a good moment to explain a little about importing graphs. You are totally free to write your own program for this, but the [Digital Twins Explorer][2] offers two different import features. One is the graph as a JSON file, this JSON file will include all the twins, relationships and models. This is a developer-friendly format, but developers aren't always the people building digital twins. 
 
-Luckily there is a second format that the explorer can work with, and it's an Excel file! The Excel file doesn't describe the models, but it does allow to create twins and relationships. The only downside is that the properties are still a JSON snippet.
+Luckily there is a second format that the explorer can work with, and it's an Excel file! The Excel file doesn't describe the models, but it does allow to create twins and relationships. The only downside is that the properties are still a JSON snippet. Here's an example of a modeled distribution grid in an Excel file:
 
 ![Excel twins](./excel-file.png "Who doesn't love a good table?")
 
