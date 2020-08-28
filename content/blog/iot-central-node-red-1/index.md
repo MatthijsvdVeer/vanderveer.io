@@ -4,6 +4,8 @@ date: "2019-06-08T12:00:00.000Z"
 description: "How to connect your Raspberry Pi with Node-Red to Azure IoT Central"
 ---
 
+> This post was written when there was no IoT Central plugin. Instead of following the post below, you can use [this module][1]
+
 Note: I migrated this post from my old blog, some pictures were lost because of general clumsiness.
 
 Node-Red is by far my favorite way of prototyping, whether it is on a desktop, tablet or Raspberry. In many proof of concept projects I prefer Node-Red to fill in the gaps that would take longer to code. It runs brilliantly on a Raspberry Pi and has access to the GPIO ports built in! In this post I will show you how to connect Node-Red on a Pi to connect to Azure IoT Central.
@@ -24,3 +26,5 @@ I’ll name my template CrowPi, because that’s the kit I’m using. On the nex
 The minimum and maximum values aren’t boundaries, but are simply for the charts to show meaningful data. I have no intention to turn my office into a sauna, but the humidity value can now show between 0% and 100% humidity. Hit the “Done” button, you have successfully created a new template! While you created your template, IoT Central also created a simulated device. This fake device can be useful to test your applications with.
 
 In the next post, we will connect a real device to IoT Central.
+
+[1]: https://techcommunity.microsoft.com/t5/azure-iot/node-red-connector-for-azure-iot-central/m-p/1605502
