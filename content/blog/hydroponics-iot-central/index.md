@@ -55,6 +55,6 @@ There we go, data! While this will not make my plants die any less, at least I'm
 [4]: https://www.aliexpress.com/item/32826785497.html
 [5]: https://github.com/Azure/iot-central-firmware
 [6]: https://github.com/MatthijsvdVeer/iot-central-hydroponics
-[7]: https://docs.microsoft.com/en-us/azure/iot-central/core/quick-deploy-iot-central
-[8]: https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play
+[7]: https://docs.microsoft.com/en-us/azure/iot-central/core/quick-deploy-iot-central?WT.mc_id=IoT-MVP-5004034
+[8]: https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play?WT.mc_id=IoT-MVP-5004034
 [9]: https://raw.githubusercontent.com/MatthijsvdVeer/iot-central-hydroponics/master/Hydroponics.json
