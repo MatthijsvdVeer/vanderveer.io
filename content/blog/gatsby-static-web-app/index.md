@@ -26,7 +26,7 @@ Merging the pull request results in an automatic deployment to your Azure Static
 
 [1]: https://ghost.org/
 [2]: https://azure.microsoft.com/en-us/services/app-service/static/#overview
-[3]: https://docs.microsoft.com/en-us/learn/modules/create-deploy-static-webapp-gatsby-app-service/
+[3]: https://docs.microsoft.com/en-us/learn/modules/create-deploy-static-webapp-gatsby-app-service/?WT.mc_id=AZ-MVP-5004034
 [4]: https://github.com/gatsbyjs/gatsby-starter-blog
 [5]: https://github.com/MatthijsvdVeer/vanderveer.io
 

@@ -173,7 +173,7 @@ In the next post, I will create the graph including all the relationships and se
 *I just realised that the conference room had a conference table, but in many episodes it was just chairs. Where did the table go?! I'm glad there is a [Reddit post][4] covering this topic.
 
 [1]: https://www.thingiverse.com/thing:3882409
-[2]: https://docs.microsoft.com/en-us/azure/digital-twins/
+[2]: https://docs.microsoft.com/en-us/azure/digital-twins/?WT.mc_id=IoT-MVP-5004034
 [3]: https://github.com/Azure-Samples/digital-twins-samples
 [4]: https://www.reddit.com/r/DunderMifflin/comments/373gaw/i_just_realized_that_the_conference_room_is/
 [5]: https://github.com/Azure-Samples/digital-twins-explorer
