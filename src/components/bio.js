@@ -60,7 +60,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Written by <strong>{author.name}</strong>{author.summary}
         {` `}
         He infrequently tweets on <a href={social.twitter}>Twitter</a>, 
         occasionaly pushes code to <a href={social.github}>GitHub</a> and often answers IoT related
