@@ -57,7 +57,7 @@ I used calipers to accurately measure the dimensions of the award, and it **only
 ## The software
 So far so good, no code written. My Logic App is telling IoT Central when the device should start frantically flashing lights. Now I just need to configure the device. I grabbed whatever Raspberry Pi was closest and installed the latest Raspberry OS, [installed Node-Red][9] (and run it as a service) and started configuring the flow. There are many ways to connect Node-Red to IoT Central or Hub, but the best node I've found so far is [this one][10]. It's a single node for every operation! It handles commands (direct methods) and properties all from the same node. That makes the flow a bit messy because the command originates from the output of the node, and the response needs to go back to the input. But I ended up with this:
 
-![Screenshot of the Node-Red flow](!./images/flow.png "No code necessary.")
+![Screenshot of the Node-Red flow](./images/flow.png "No code necessary.")
 
 > Hey, those are Function blocks! You said no code!
 
