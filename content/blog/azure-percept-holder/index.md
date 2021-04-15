@@ -5,7 +5,7 @@ description: "My 3D printer is always solving problems nobody has. Today: Giving
 ---
 ![Azure Percept on custom feet](./images/azure-percept.jpg "It's like walking on a cloud.")
 
-TL;DR: I made a thing and you can get it [here][4]
+**TL;DR: I made a thing and you can get it [here][4]**
 
 The Azure Percept DK is a great device to build your AI at the edge prototypes with. It comes mounted on a piece of 8020 rail, which is a global standard for all kinds of setups. But unfortunately, my home office doesn't feature any other pieces of 8020, so I couldn't mount it anywhere. This isn't too much of a problem, but it makes it hard to properly orient the camera at times. And as if I need to justify this project anymore: how will people know I'm using this awesome tech if I can't showcase it in my home office! When you have a 3D printer, you get to solve all kinds of problems that don't exist...
 
