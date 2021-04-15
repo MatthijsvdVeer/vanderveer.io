@@ -1,6 +1,6 @@
 ---
 title: Azure Feet for Azure Percept
-date: "2021-04-09T12:00:00.000Z"
+date: "2021-04-15T12:00:00.000Z"
 description: "My 3D printer is always solving problems nobody has. Today: Giving the Azure Percept some feet."
 ---
 ![Azure Percept on custom feet](./images/azure-percept.jpg "It's like walking on a cloud.")
