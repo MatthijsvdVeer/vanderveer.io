@@ -49,9 +49,6 @@ Which gave me the following result:
 
 ![Reservation](./reservation.png "Desk, reservation, employee")
 
-## Next steps
-In the next update, I'm going to change the availability of the desks depending on whether a reservation was made.
-
 
 [1]: https://theoffice.fandom.com/wiki/Dunder_Mifflin_Scranton
 [2]: https://github.com/Azure-Samples/digital-twins-explorer
