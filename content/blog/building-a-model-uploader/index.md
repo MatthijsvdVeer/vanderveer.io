@@ -4,6 +4,8 @@ date: "2021-08-27T12:00:00.000Z"
 description: By uploading Azure Digital Twin models in batches, you can greatly reduce the number of API calls.
 ---
 
+> Update: there is a new and better implementation, and I wrote about it [here](../built-a-worse-model-uploader/).
+
 TLDR: I wrote [some software][5] that does the same thing as [a tool][1] Microsoft made, but in doing so learned a lot about ADT and DTDL. This post describes that journey.
 
 I wrote about Azure Digital Twins (ADT) before, and have played around with some custom ontologies. In reality though, when you start any new ADT project, it's usually better to find an existing standard to work with. This way, you're not reinventing the wheel, plus you're using industry standards, which makes integration with other software a lot easier. Microsoft has created a couple of libraries to get started:
@@ -34,3 +36,4 @@ The model uploader can be found on [GitHub][5]. Oh, and as for its performance, 
 [5]: https://github.com/MatthijsvdVeer/adt-model-uploader
 [6]: https://docs.microsoft.com/en-us/azure/digital-twins/reference-service-limits?WT.mc_id=IoT-MVP-5004034#functional-limits
 [7]: https://docs.microsoft.com/en-us/answers/questions/515583/none-of-the-models-in-this-request-could-be-create.html?WT.mc_id=IoT-MVP-5004034
+[8]: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools
