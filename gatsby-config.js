@@ -3,7 +3,7 @@ module.exports = {
     title: `Matthijs van der Veer's Blog`,
     author: {
       name: `Matthijs van der Veer`,
-      summary: `, Microsoft Azure MVP and IoT Specialist in Avanade's Digital Innovation Studio.`,
+      summary: `, Microsoft Azure MVP and IoT Specialist at Xpirit.`,
     },
     description: `A blog by Matthijs van der Veer on Internet of Things, Microsoft Technology and gadgets.`,
     siteUrl: `https://www.vanderveer.io/`,
