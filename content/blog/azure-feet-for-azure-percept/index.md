@@ -5,7 +5,7 @@ description: "My 3D printer is always solving problems nobody has. Today: Giving
 ---
 ![Azure Percept on custom feet](./images/azure-percept.jpg "It's like walking on a cloud.")
 
-**TL;DR: I made a thing and you can get it [here][4]**
+**TL;DR: I made a thing, and you can get it [here][4]**
 
 The Azure Percept DK is a great device to build your AI at the edge prototypes with. It comes mounted on a piece of 8020 rail, which is a global standard for all kinds of setups. But unfortunately, my home office doesn't feature any other pieces of 8020, unless I mount it to my printer, so I couldn't put it anywhere. This isn't too much of a problem, but it makes it hard to properly orient the camera at times. And as if I need to justify this project anymore: how will people know I'm using this awesome tech if I can't showcase it in my home office! When you have a 3D printer, you get to solve all kinds of problems that don't exist...
 
@@ -28,11 +28,11 @@ The result wasn't bad, it just wasn't... flashy enough?
 
 
 ## How To Not Model An Azure Logo
-This design needed 100% more Azure, so I set off to design the Azure logo in 3D before quickly realising I have no 3D skills whatsoever. Luckily, my trusty tool Tinkercad allows importing of SVG files! So I imported the Azure logo and for some reason it was only at that point that I realised that the Azure logo exists of two separate parts... So after some tinkering I decided to use the 8020 rail connector to connect the two, and just print the model in two colours through a filament swap.
+This design needed 100% more Azure, so I set off to design the Azure logo in 3D before quickly realising I have no 3D skills whatsoever. Luckily, my trusty tool Tinkercad allows importing SVG files! So I imported the Azure logo and for some reason, it was only at that point that I realised that the Azure logo exists of two separate parts... So after some tinkering, I decided to use the 8020 rail connector to connect the two, and just print the model in two colours through a filament swap.
 
 ![A 3D model of the end result](./images/more-azure-3d.png "It's perfect to me okay?!")
 
-I'm really please with this blue filament I picked up, it doesn't match the Azure logo's colour, but it prints great and is quite glossy too. It has an almost mirror-like finish when you print it on a glass bed. It's [Fillamentum Noble Blue][3], if you want to get the same. So here it is, the end result:
+I'm really please with this blue filament I picked up, it doesn't match the Azure logo's colour, but it prints great and is quite glossy too. It has an almost mirror-like finish when you print it on a glass bed. It's [Fillamentum Noble Blue][3] if you want to get the same. So here it is, the end result:
 
 ![Azure Feet for Azure Percept, with a banana](./images/overview.jpg "Banana for scale")
 
