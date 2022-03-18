@@ -4,7 +4,7 @@ date: "2022-03-14T12:00:00.000Z"
 description: "Can you build a platform that goes from device telemetry to historical insights, all in one day? Here's how we did it."
 ---
 
-We want to create a digital twin of our office, and while we have the skills to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
+A digital twin of a building, a single point of truth for anything happening in our office, in real time! We're going to use Azure Digital Twins to create a complete overview of our office. And while we have the skills and experience to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
 - Rooms
 - Phone booths
 - Car chargers
