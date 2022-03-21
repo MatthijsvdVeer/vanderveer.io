@@ -4,14 +4,14 @@ date: "2022-03-14T12:00:00.000Z"
 description: "Can you build a platform that goes from device telemetry to historical insights, all in one day? Here's how we did it."
 ---
 
-A digital twin of a building, a single point of truth for anything happening in our office, in real time! We're going to use Azure Digital Twins to create a complete overview of our office. And while we have the skills and experience to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
+A digital twin of a building, a single point of truth for anything happening in our workspace, in real-time! We plan to use Azure Digital Twins to create a complete overview of our office. While we have the skills and experience to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
 - Rooms
 - Phone booths
 - Car chargers
 - Our Farmbot
 - The beer fridge (obviously)
 
-Here's what we came up with after one day.
+This post describes what we came up with after one day. It tackles some of the most common issues we've run into when building twins with ADT.
 
 ## Mapping device telemetry to a twin
 There are many ways to map device telemtry to a twin in Azure digital twins, let's take this example of the twins of a room with two sensor types attached to it:
@@ -30,10 +30,12 @@ We use Azure Stream Analytics to match incoming device messages and map them aga
 |---|---|---|---|
 |co2sensor|body.data.co2|room1-co2|/lastValue|
 |temperaturesensor|body.data.temperature|room1-temperature|/lastValue|
-|airqualitysensor|body.data.temperature|room2-co2|/lastValue|
-|airqualitysensor|body.data.co2|room2-temperature|/lastValue|
+|airqualitysensor|body.data.co2|room2-co2|/lastValue|
+|airqualitysensor|body.data.temperature|room2-temperature|/lastValue|
 
-The query we then run over the incoming data is as follows, we added bit of optimisation to it in the form of a tumbling window to group changes together.
+With this reference file, it's possible to deal with both the situations described above. This should make it possible to deal with all kinds of telemetry from devices of different manufacturers.
+
+The query we then run over the incoming data is as follows; we added a bit of optimisation to it in the form of a tumbling window to group changes together.
 ```sql
 with transformed as
 (
@@ -71,7 +73,7 @@ The results were good, and we will keep exploring using the [Data Explorer Plugi
 
 
 
-> All of this wouldn't have been possible without [Kees Verhaar][2], [Sander Trijssenaar][4], [Tijmen van de Kamp][5], [Arjan van Bekkum][6], [Rutger Buiteman][7] and [Bas van de Sande][3]. Bas also made an [excellent writeup][8] of his journey with .Net NanoFramework and ESP32 development.
+> All of this wouldn't have been possible without [Kees Verhaar][2], [Sander Trijssenaar][4], [Tijmen van de Kamp][5], [Arjan van Bekkum][6], [Rutger Buiteman][7] and [Bas van de Sande][3]. Bas also made an [excellent writeup][8] of his journey with .Net NanoFramework and ESP32 development. Special thanks to [Olena Borzenko][10] for sanity-checking everything we built!
 
 [1]: https://docs.microsoft.com/en-us/azure/digital-twins/reference-service-limits?WT.mc_id=IoT-MVP-5004034#rate-limits
 [2]: https://xpirit.com/team/kees-verhaar/
@@ -82,3 +84,4 @@ The results were good, and we will keep exploring using the [Data Explorer Plugi
 [7]: https://xpirit.com/team/rutger-buiteman/
 [8]: https://azurecodingarchitect.com/posts/prepare-for-iot/
 [9]: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-data-explorer-plugin?WT.mc_id=IoT-MVP-5004034
+[10]: https://xpirit.com/team/olena-borzenko/
