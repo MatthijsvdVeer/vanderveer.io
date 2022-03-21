@@ -4,14 +4,14 @@ date: "2022-03-14T12:00:00.000Z"
 description: "Can you build a platform that goes from device telemetry to historical insights, all in one day? Here's how we did it."
 ---
 
-A digital twin of a building, a single point of truth for anything happening in our office, in real time! We're going to use Azure Digital Twins to create a complete overview of our office. And while we have the skills and experience to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
+A digital twin of a building, a single point of truth for anything happening in our workspace, in real-time! We plan to use Azure Digital Twins to create a complete overview of our office. While we have the skills and experience to get started right away, we took some time on our innovation day to tackle a few challenges to make our platform into something you won't find anywhere else. When we took a quick inventory of all the things we would like to model in our digital twin, we needed a way to translate any message into any twin update in a dynamic way. Otherwise, you would need to write separate code for:
 - Rooms
 - Phone booths
 - Car chargers
 - Our Farmbot
 - The beer fridge (obviously)
 
-Here's what we came up with after one day.
+This post describes what we came up with after one day. It tackles some of the most common issues we've run into when building twins with ADT.
 
 ## Mapping device telemetry to a twin
 There are many ways to map device telemtry to a twin in Azure digital twins, let's take this example of the twins of a room with two sensor types attached to it:
