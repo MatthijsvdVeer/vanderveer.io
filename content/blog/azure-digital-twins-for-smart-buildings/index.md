@@ -71,7 +71,7 @@ The results were good, and we will keep exploring using the [Data Explorer Plugi
 
 
 
-> All of this wouldn't have been possible without [Kees Verhaar][2], [Sander Trijssenaar][4], [Tijmen van de Kamp][5], [Arjan van Bekkum][6], [Rutger Buiteman][7] and [Bas van de Sande][3]. Bas also made an [excellent writeup][8] of his journey with .Net NanoFramework and ESP32 development.
+> All of this wouldn't have been possible without [Kees Verhaar][2], [Sander Trijssenaar][4], [Tijmen van de Kamp][5], [Arjan van Bekkum][6], [Rutger Buiteman][7] and [Bas van de Sande][3]. Bas also made an [excellent writeup][8] of his journey with .Net NanoFramework and ESP32 development. Special thanks to [Olena Borzenko][10] for sanity-checking everything we built!
 
 [1]: https://docs.microsoft.com/en-us/azure/digital-twins/reference-service-limits?WT.mc_id=IoT-MVP-5004034#rate-limits
 [2]: https://xpirit.com/team/kees-verhaar/
@@ -82,3 +82,4 @@ The results were good, and we will keep exploring using the [Data Explorer Plugi
 [7]: https://xpirit.com/team/rutger-buiteman/
 [8]: https://azurecodingarchitect.com/posts/prepare-for-iot/
 [9]: https://docs.microsoft.com/en-us/azure/digital-twins/concepts-data-explorer-plugin?WT.mc_id=IoT-MVP-5004034
+[10]: https://xpirit.com/team/olena-borzenko/
