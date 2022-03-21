@@ -30,10 +30,12 @@ We use Azure Stream Analytics to match incoming device messages and map them aga
 |---|---|---|---|
 |co2sensor|body.data.co2|room1-co2|/lastValue|
 |temperaturesensor|body.data.temperature|room1-temperature|/lastValue|
-|airqualitysensor|body.data.temperature|room2-co2|/lastValue|
-|airqualitysensor|body.data.co2|room2-temperature|/lastValue|
+|airqualitysensor|body.data.co2|room2-co2|/lastValue|
+|airqualitysensor|body.data.temperature|room2-temperature|/lastValue|
 
-The query we then run over the incoming data is as follows, we added bit of optimisation to it in the form of a tumbling window to group changes together.
+With this reference file, it's possible to deal with both the situations described above. This should make it possible to deal with all kinds of telemetry from devices of different manufacturers.
+
+The query we then run over the incoming data is as follows; we added a bit of optimisation to it in the form of a tumbling window to group changes together.
 ```sql
 with transformed as
 (
