@@ -59,10 +59,10 @@ const Bio = () => {
       <p>
         Written by <strong>{author.name}</strong>{author.summary}
         {` `}
-        He infrequently tweets on <a target="_blank" href={social.twitter}>Twitter</a>, 
-        occasionaly pushes code to <a target="_blank" href={social.github}>GitHub</a> and often answers IoT related
-        questions on <a target="_blank" href={social.stackOverflow}>StackOverflow</a>. 
-        Feel free to connect on <a target="_blank" href={social.linkedIn}>LinkedIn</a>. Also <a target="_blank" rel="me" href={social.mastodon}>Mastodon</a> is a thing now.
+        He infrequently tweets on <a target="_blank" rel="noopener noreferrer" href={social.twitter}>Twitter</a>, 
+        occasionaly pushes code to <a target="_blank" rel="noopener noreferrer" href={social.github}>GitHub</a> and often answers IoT related
+        questions on <a target="_blank" rel="noopener noreferrer" href={social.stackOverflow}>StackOverflow</a>. 
+        Feel free to connect on <a target="_blank" rel="noopener noreferrer" href={social.linkedIn}>LinkedIn</a>. Also <a target="_blank" rel="me noopener noreferrer" href={social.mastodon}>Mastodon</a> is a thing now.
       </p>
     </div>
   );
