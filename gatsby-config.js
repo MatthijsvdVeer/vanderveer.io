@@ -11,7 +11,8 @@ module.exports = {
       twitter: `https://twitter.com/MatthijsvdVeer`,
       github: `https://github.com/MatthijsvdVeer`,
       stackOverflow: `https://stackoverflow.com/users/8800237/matthijs-van-der-veer`,
-      linkedIn: `https://www.linkedin.com/in/matthijsvanderveer/`
+      linkedIn: `https://www.linkedin.com/in/matthijsvanderveer/`,
+      mastodon: `https://mastodon.online/@MatthijsvdVeer`
     },
   },
   plugins: [
