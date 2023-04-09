@@ -1,7 +1,7 @@
 ---
 title: "Ensuring IoT Hub Treats Messages as JSON: A Step-by-Step Guide"
 date: "2023-04-09T12:00:00.000Z"
-description: "By default, IoT Hub receives message bodies as byte arrays, regardless of whether it's JSON format or not. Without the correct content properties, IoT Hub may not be able to correctly interpret the message content or apply the routing rules and filters that depend on JSON properties. To ensure that your messages are treated as JSON, you need to provide the necessary content properties."
+description: "IoT Hub receives message bodies as byte arrays, regardless of whether it's JSON format or not. To make routing work, you need to add some metadata!"
 ---
 
 # Introduction:
