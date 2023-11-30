@@ -1,5 +1,5 @@
 ---
-title: Getting Started With Semantic Kernel - Plugins and Functions
+title: Getting Started With Semantic Kernel - What is Semantic Kernel?
 date: "2023-11-30T18:17:00.000Z"
 description: "What is Semantic Kernel and how do you get started with it? In this post I'll cover the absolute basics."
 ---
@@ -30,13 +30,16 @@ A function can be anything you have the skills for to program. The project also 
 
 Semantic Kernel tries to take away some of the complexity of working with LLMs. One way it does that is by abstracting away the underlying LLM API. Instead of talking directly to the (Azure) OpenAI API, you just tell the Kernel what models you want to use, and it will take care of the rest.
 
+Another way it helps decrease the complexity, is when you want to deal with "memory". Especially if you're coming from a level 2 application, working towards the next level, you'll find that Sementic Kernel has tools in place to deal with your knowledge base. You can store data in Semantic Kernel "memory" and retrieve it later. You can have this memory in your application, stored in your RAM. But Semantic Kernel also offers [different connectors][5] for a lot of databases.
+
 ## Getting Started
 
-To get started, I'm writing some articles on how to use Semantic Kernel. You can find them here:
+The above should give a little overview of Semantic Kernel, but if you want to see how all this technology works, you can check out my other articles, where I go into details about all these topics:
 
 - [Plugins and Functions][3]
 
 [1]: https://github.com/MatthijsvdVeer/PeaceProcessor
 [2]: https://github.com/microsoft/semantic-kernel/
-[3]: /semantic-kernel-plugins-simple-functions/
+[3]: ../semantic-kernel-plugins-simple-functions/index.md
 [4]: https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins/out-of-the-box-plugins?WT.mc_id=IoT-MVP-5004034&tabs=Csharp
+[5]: https://learn.microsoft.com/en-us/semantic-kernel/memories/vector-db?WT.mc_id=IoT-MVP-5004034#available-connectors-to-vector-databases
