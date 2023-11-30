@@ -40,6 +40,6 @@ The above should give a little overview of Semantic Kernel, but if you want to s
 
 [1]: https://github.com/MatthijsvdVeer/PeaceProcessor
 [2]: https://github.com/microsoft/semantic-kernel/
-[3]: ../semantic-kernel-plugins-simple-functions/index.md
+[3]: ../semantic-kernel-plugins-simple-functions/
 [4]: https://learn.microsoft.com/en-us/semantic-kernel/ai-orchestration/plugins/out-of-the-box-plugins?WT.mc_id=IoT-MVP-5004034&tabs=Csharp
 [5]: https://learn.microsoft.com/en-us/semantic-kernel/memories/vector-db?WT.mc_id=IoT-MVP-5004034#available-connectors-to-vector-databases
