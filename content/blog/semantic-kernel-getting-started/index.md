@@ -32,6 +32,10 @@ Semantic Kernel tries to take away some of the complexity of working with LLMs. 
 
 Another way it helps decrease the complexity, is when you want to deal with "memory". Especially if you're coming from a level 2 application, working towards the next level, you'll find that Sementic Kernel has tools in place to deal with your knowledge base. You can store data in Semantic Kernel "memory" and retrieve it later. You can have this memory in your application, stored in your RAM. But Semantic Kernel also offers [different connectors][5] for a lot of databases.
 
+## Planners
+
+Perhaps the most impressive use of LLMs to date, and the very core of a Level 3 application, is the ability to plan. When you want to use this feature, you build several Functions and offer them to an LLM. The LLM will then decide which functions to execute, and in which order. This is a very powerful feature, and it's what makes Semantic Kernel so interesting.
+
 ## Getting Started
 
 The above should give a little overview of Semantic Kernel, but if you want to see how all this technology works, you can check out my other articles, where I go into details about all these topics:
