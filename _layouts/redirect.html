@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content">
+    <p>This article lives on Substack. You will be redirected automatically.</p>
+    <p><a href="{{ page.external_url }}">Read on Substack &rarr;</a></p>
+  </div>
+</article>
+
+<script>
+  window.location.replace("{{ page.external_url }}");
+</script>
+<noscript>
+  <meta http-equiv="refresh" content="0; url={{ page.external_url }}">
+</noscript>
