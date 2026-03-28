@@ -11,7 +11,11 @@ layout: default
     <li>
       <span class="post-meta">{{ post.date | date: "%B %d, %Y" }}</span>
       <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {%- if post.external_url -%}
+          <a class="post-link" href="{{ post.external_url }}" target="_blank" rel="noopener">{{ post.title | escape }} ↗</a>
+        {%- else -%}
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {%- endif -%}
       </h3>
       {%- if post.description -%}
         <p>{{ post.description }}</p>
