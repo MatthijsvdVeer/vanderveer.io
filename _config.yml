@@ -7,15 +7,13 @@ permalink: /:title/
 
 # Author
 author: "Matthijs van der Veer"
-author_bio: "Coding Architect @ Xebia & Microsoft MVP Award Winner."
+author_bio: "Consultant and public speaker at Xebia, focused on GenAI. I cut through the hype and make AI digestible — for engineers and executives alike. Honestly though, I'm just here to earn the kibble for my dog."
 
 # Social links
 social:
-  twitter: "https://twitter.com/MatthijsvdVeer"
   github: "https://github.com/MatthijsvdVeer"
-  stackoverflow: "https://stackoverflow.com/users/8800237/matthijs-van-der-veer"
   linkedin: "https://www.linkedin.com/in/matthijsvanderveer/"
-  mastodon: "https://mastodon.online/@MatthijsvdVeer"
+  substack: "https://matthijsvdveer.substack.com/"
 
 # Build settings
 theme: minima
@@ -26,10 +24,8 @@ plugins:
 # Minima theme settings
 minima:
   social_links:
-    - { platform: twitter, user_url: "https://twitter.com/MatthijsvdVeer" }
     - { platform: github, user_url: "https://github.com/MatthijsvdVeer" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/matthijsvanderveer/" }
-    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/8800237/matthijs-van-der-veer" }
 
 # Google Analytics
 google_analytics: UA-121896968-3
