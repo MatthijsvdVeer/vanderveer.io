@@ -6,9 +6,8 @@ baseurl: ""
 permalink: /:title/
 
 # Author
-author:
-  name: "Matthijs van der Veer"
-  bio: "Coding Architect @ Xebia & Microsoft MVP Award Winner."
+author: "Matthijs van der Veer"
+author_bio: "Coding Architect @ Xebia & Microsoft MVP Award Winner."
 
 # Social links
 social:
