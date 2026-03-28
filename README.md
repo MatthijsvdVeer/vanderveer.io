@@ -1,7 +1,12 @@
-## www.vanderveer.io
-My simple blog built on Gatsby. Started from the [Gatsby Starter Blog][1]
+# vanderveer.io
 
-This repository is linked to a Static Web App, you can find it [here][2]!
+Personal blog of Matthijs van der Veer, built with Jekyll and hosted on GitHub Pages.
 
-[1]: https://github.com/gatsbyjs/gatsby-starter-blog
-[2]: https://www.vanderveer.io/
+## Local Development
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Visit `http://localhost:4000` to preview the site.
