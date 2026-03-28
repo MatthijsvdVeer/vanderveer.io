@@ -1,0 +1,48 @@
+title: "Matthijs van der Veer's Blog"
+description: "A blog by Matthijs van der Veer on Internet of Things, Microsoft Technology and gadgets."
+url: "https://www.vanderveer.io"
+baseurl: ""
+
+permalink: /:title/
+
+# Author
+author:
+  name: "Matthijs van der Veer"
+  bio: "Coding Architect @ Xebia & Microsoft MVP Award Winner."
+
+# Social links
+social:
+  twitter: "https://twitter.com/MatthijsvdVeer"
+  github: "https://github.com/MatthijsvdVeer"
+  stackoverflow: "https://stackoverflow.com/users/8800237/matthijs-van-der-veer"
+  linkedin: "https://www.linkedin.com/in/matthijsvanderveer/"
+  mastodon: "https://mastodon.online/@MatthijsvdVeer"
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Minima theme settings
+minima:
+  social_links:
+    - { platform: twitter, user_url: "https://twitter.com/MatthijsvdVeer" }
+    - { platform: github, user_url: "https://github.com/MatthijsvdVeer" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/matthijsvanderveer/" }
+    - { platform: stackoverflow, user_url: "https://stackoverflow.com/users/8800237/matthijs-van-der-veer" }
+
+# Google Analytics
+google_analytics: UA-121896968-3
+
+# Feed settings
+feed:
+  path: feed.xml
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - LICENSE
+  - README.md
