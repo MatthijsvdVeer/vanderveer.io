@@ -6,7 +6,7 @@ permalink: /llms.txt
 
 > {{ site.description }} {{ site.author_bio }}
 
-This is a personal tech blog covering Azure IoT, Azure Digital Twins, AI/ML, and software engineering. Posts range from hands-on tutorials and project walkthroughs to opinion pieces on LLMs and AI agents.
+This is a personal tech blog covering Microsoft Foundry, Agent Service, Agentic AI, genAI, and software engineering. Posts range from hands-on tutorials and project walkthroughs to opinion pieces on LLMs and AI agents.
 
 ## Blog Posts
 {% for post in site.posts %}
