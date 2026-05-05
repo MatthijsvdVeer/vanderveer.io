@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if page.title and page.layout != 'home' %}{{ page.title | escape }} · {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  {% seo title=false %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}" />
+</head>
+<body data-page="{{ page.layout }}">
+
+  {% include header.html %}
+
+  <main>{{ content }}</main>
+
+  <footer class="site-footer">
+    {% include feather.html %}
+    © {{ 'now' | date: '%Y' }} {{ site.author }} · Field notes from above &amp; below
+  </footer>
+
+  <script>
+    // Sticky-header tone shift after first scroll
+    (function () {
+      var hdr = document.querySelector('.site-header');
+      if (!hdr) return;
+      var onScroll = function () {
+        if (window.scrollY > 60) hdr.classList.add('is-scrolled');
+        else hdr.classList.remove('is-scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // Hero parallax — fog + tree silhouettes drift as you scroll
+    (function () {
+      var fog = document.querySelector('.hero__fog');
+      var trees = document.querySelector('.hero__trees');
+      var inner = document.querySelector('.hero__inner');
+      var scroll = document.querySelector('.hero__scroll');
+      if (!fog && !trees && !inner) return;
+      var ticking = false;
+      var update = function () {
+        var y = window.scrollY;
+        if (fog)   fog.style.transform = 'translateY(' + (y * 0.4) + 'px)';
+        if (trees) trees.style.transform = 'translateY(' + (y * 0.1) + 'px)';
+        if (inner) {
+          inner.style.transform = 'translateY(' + (y * -0.2) + 'px)';
+          inner.style.opacity = Math.max(0, 1 - y / 500);
+        }
+        if (scroll) scroll.style.opacity = Math.max(0, 1 - y / 200);
+        ticking = false;
+      };
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

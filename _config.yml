@@ -8,6 +8,7 @@ permalink: /:title/
 # Author
 author: "Matthijs van der Veer"
 author_bio: "GenAI consultant, public speaker and Microsoft MVP at Xebia. I cut through the hype and make AI digestible for engineers and executives alike. Honestly though, I'm just here to earn the kibble for my dog."
+author_photo: /assets/profile.png
 
 # Social links
 social:
@@ -16,16 +17,15 @@ social:
   substack: "https://matthijsvdveer.substack.com/"
 
 # Build settings
-theme: minima
+# theme: minima
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
 # Minima theme settings
-minima:
-  social_links:
-    - { platform: github, user_url: "https://github.com/MatthijsvdVeer" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/matthijsvanderveer/" }
+header_pages:
+  - about.md
 
 # Google Analytics
 google_analytics: UA-121896968-3

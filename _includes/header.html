@@ -1,5 +1,10 @@
 <header class="site-header" role="banner">
-  <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-  </div>
+  <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
+    {% include feather.html %}
+    {{ site.title | escape | replace: "'s Blog", "" }}
+  </a>
+  <nav class="site-nav">
+    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="is-active"{% endif %}>Articles</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="is-active"{% endif %}>About</a>
+  </nav>
 </header>

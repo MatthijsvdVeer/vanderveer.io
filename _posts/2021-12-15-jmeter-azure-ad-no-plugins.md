@@ -43,6 +43,7 @@ Download [JMeter][1] and open it. If you're on windows, run the /bin/jmeter.bat 
 ![JMeter screenshot with the setUp Thread Group](/assets/blog/jmeter-azure-ad-no-plugins/create-setup-thread-group.png "Create the setUp Thread Group")
 
 In this thread group, we'll create a User Defined Variables component and enter the following keys and values:
+
 |key|value|
 |---|---|
 |tenant_id|**the tenant ID you copied**|
@@ -71,6 +72,7 @@ To do the actual authentication, we will need to set up our HTTP Request. Set th
 ![JMeter screenshot, showing the HTTP request](/assets/blog/jmeter-azure-ad-no-plugins/http-request.png "HTTP Request")
 
 Almost there, in the JSON Extractor, enter the following:
+
 |field|value|
 |---|---|
 |Names of created variables|access_token|
@@ -79,6 +81,7 @@ Almost there, in the JSON Extractor, enter the following:
 |Default Values|ERROR|
 
 This will tell the post-processor to retrieve the `access_token` field from the JSON and create a variable with the same name. We will turn that into a property by entering the following script in the JSR223 PostProcessor:
+
 ```
 props.put("access_token", "${access_token}");
 ```
@@ -89,6 +92,7 @@ Let's see if this works! Add a **View Results Tree** listener to the Test Plan (
 
 ## Sampling the web page
 With all this in place, add a new Thread Group (not a setUp one this time). Under that group, create an **HTTP Header Manager** and an **HTTP Request** component. We will use the former to set the HTTP Headers for all our HTTP Requests. So in the HTTP Manager, add the following header:
+
 |field|value|
 |---|---|
 |Authorization|Bearer ${__property(access_token)}|

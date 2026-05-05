@@ -27,6 +27,7 @@ The cloud icon represents a solution that maps a single incoming message, to a s
 Now we have a device that can report both temperature and Co2 values, we need to split those values up to update multiple twins. This is no big deal, but what we wanted to achieve was to make a single solution that could support both scenarios. We wanted to be able to turn one message into a single twin update, or multiple, without having to write code for every new device we would want to onboard in the future.
 
 We use Azure Stream Analytics to match incoming device messages and map them against a reference file to achieve this. An incoming message is joined by its device ID to the reference file, which holds a structure similar to this:
+
 |deviceId|property|twinId|twinPath|
 |---|---|---|---|
 |co2sensor|body.data.co2|room1-co2|/lastValue|
@@ -37,6 +38,7 @@ We use Azure Stream Analytics to match incoming device messages and map them aga
 With this reference file, it's possible to deal with both the situations described above. This should make it possible to deal with all kinds of telemetry from devices of different manufacturers.
 
 The query we then run over the incoming data is as follows; we added a bit of optimisation to it in the form of a tumbling window to group changes together.
+
 ```sql
 with transformed as
 (
