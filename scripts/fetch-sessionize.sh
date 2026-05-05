@@ -17,8 +17,8 @@ for e in data.get('events', []):
     events.append({
         'id': e.get('id'),
         'name': e.get('name'),
-        'start': (e.get('startDate') or '')[:10],
-        'end':   (e.get('endDate')   or '')[:10],
+        'start': (e.get('eventStartDate') or '')[:10],
+        'end':   (e.get('eventEndDate')   or '')[:10],
         'location': e.get('location'),
         'website':  e.get('website') or '',
     })
@@ -41,7 +41,7 @@ for s in data.get('sessions', []):
         'title': s.get('name') or s.get('title'),
         'short': short,
         'full':  full,
-        'url':   s.get('url'),
+        'url':   s.get('sessionUrl'),
         'isWorkshop': bool(s.get('isWorkshop') or 'workshop' in (s.get('name') or '').lower()),
     })
 
