@@ -42,7 +42,7 @@ for s in data.get('sessions', []):
         'short': short,
         'full':  full,
         'url':   s.get('sessionUrl'),
-        'isWorkshop': bool(s.get('isWorkshop') or 'workshop' in (s.get('name') or '').lower()),
+        'isWorkshop': 'workshop' in (s.get('description') or '').lower(),
     })
 
 def y(v):
