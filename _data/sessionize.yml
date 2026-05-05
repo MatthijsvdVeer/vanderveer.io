@@ -160,6 +160,7 @@ sessions:
       This talk is for anyone with an opinion on AI, whether you're a fan, a critic, or somewhere in between. Come ready to question your relationship with your favourite chatbot and leave knowing how to spot sycophantic behaviour before it reshapes your thinking.
   - title: "Build your own coding agent"
     url: "https://sessionize.com/s/matthijs-van-der-veer/build-your-own-coding-agent/167132"
+    isWorkshop: true
     short: "Every application is an agent now, or is it? There is a clear difference between simple chatbots and tools like Claude Code and GitHub Copilot. Building a powerful agent might seem daunting, but in this workshop,…"
     full: |
       Every application is an agent now, or is it? There is a clear difference between simple chatbots and tools like Claude Code and GitHub Copilot. Building a powerful agent might seem daunting, but in this workshop, we'll implement the inner workings of an agent that can autonomously chase a goal and complete tasks. You'll learn the fundamentals using Microsoft Agent Framework, including tool usage, memory management, and skill integration, enabling you to create effective agents that go beyond simple RAG chatbots.
