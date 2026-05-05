@@ -1,0 +1,177 @@
+# Snapshot of https://sessionize.com/api/speaker/json/32v3odtbr8
+# Pulled 2026-05-04. Refresh with: ./jekyll/scripts/fetch-sessionize.sh
+
+events:
+  - id: 22189
+    name: "NDC Copenhagen 2026"
+    start: "2026-06-01"
+    end:   "2026-06-04"
+    location: "Copenhagen, Denmark"
+    website:  "https://ndccopenhagen.com"
+  - id: 20885
+    name: "Future Tech 2026"
+    start: "2026-03-11"
+    end:   "2026-03-11"
+    location: "Utrecht, Netherlands"
+    website:  "https://futuretech.nl/"
+  - id: 20223
+    name: "Cloud Tech Tallinn 2026"
+    start: "2026-01-29"
+    end:   "2026-01-30"
+    location: "Tallinn, Estonia"
+    website:  "https://cloudtechtallinn.com/"
+  - id: 18899
+    name: "Build Stuff 2025 Lithuania"
+    start: "2025-12-03"
+    end:   "2025-12-05"
+    location: "Vilnius, Lithuania"
+    website:  "http://buildstuff.events"
+  - id: 20145
+    name: "AI Lowlands 2025"
+    start: "2025-12-02"
+    end:   "2025-12-02"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.ailowlands.com"
+  - id: 18659
+    name: "Techorama 2025 Netherlands"
+    start: "2025-10-27"
+    end:   "2025-10-29"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.techorama.nl"
+  - id: 18298
+    name: "NDC Copenhagen Developers Festival 2025"
+    start: "2025-09-08"
+    end:   "2025-09-12"
+    location: "Copenhagen, Denmark"
+    website:  "https://cphdevfest.com"
+  - id: 18923
+    name: "AgentCon Utrecht 2025"
+    start: "2025-04-22"
+    end:   "2025-04-22"
+    location: "Nieuwegein, Netherlands"
+    website:  "https://globalai.community/chapters/utrecht/events/agentcon-2025-utrecht"
+  - id: 17314
+    name: "Future Tech 2025"
+    start: "2025-03-13"
+    end:   "2025-03-13"
+    location: "Utrecht, Netherlands"
+    website:  "https://futuretech.nl/"
+  - id: 16034
+    name: "Cloud Technology Townhall Tallinn 2025"
+    start: "2025-01-30"
+    end:   "2025-01-31"
+    location: "Tallinn, Estonia"
+    website:  "https://cloudtechtallinn.com/"
+  - id: 16722
+    name: "AI Community Day"
+    start: "2024-12-10"
+    end:   "2024-12-10"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.aicommunityday.nl"
+  - id: 14680
+    name: "Build Stuff 2024 Lithuania"
+    start: "2024-11-13"
+    end:   "2024-11-15"
+    location: "Vilnius, Lithuania"
+    website:  "http://buildstuff.events"
+  - id: 14459
+    name: "Techorama 2024 Netherlands"
+    start: "2024-10-07"
+    end:   "2024-10-09"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.techorama.nl"
+  - id: 13207
+    name: "NDC Oslo 2024"
+    start: "2024-06-10"
+    end:   "2024-06-14"
+    location: "Oslo, Norway"
+    website:  "https://ndcoslo.com"
+  - id: 15262
+    name: "AI Community Day"
+    start: "2024-05-14"
+    end:   "2024-05-14"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.aicommunityday.nl"
+  - id: 11453
+    name: "Cloud Technology Townhall Tallinn 2024"
+    start: "2024-02-01"
+    end:   "2024-02-02"
+    location: "Tallinn, Estonia"
+    website:  ""
+  - id: 1007622
+    name: "AI Summer Jam"
+    start: "2023-07-25"
+    end:   "2023-07-25"
+    location: "Hilversum, Netherlands"
+    website:  "https://xpirit.com/events/aisummerjam/"
+  - id: 1005936
+    name: "MS Tech Summit Poland"
+    start: "2022-12-02"
+    end:   "2022-12-02"
+    location: "Warsaw, Poland"
+    website:  "https://mstechsummit.pl/en/"
+  - id: 7783
+    name: "Techorama Netherlands 2022"
+    start: "2022-10-10"
+    end:   "2022-10-12"
+    location: "Utrecht, Netherlands"
+    website:  "https://www.techorama.nl"
+
+# Each session has a one-line `short` (shown collapsed) and a `full`
+# multi-paragraph description (shown when expanded). Use `\n\n` between
+# paragraphs in `full`.
+sessions:
+  - title: "Unmasking Model Bias — The Overlooked Metric In GenAI"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/unmasking-model-bias-the-overlooked-metric-in-gena/145955"
+    short: "A thought-provoking session that uncovers the critical concept of model bias in generative AI — a metric often overlooked in model selection."
+    full: |
+      We will explore why model bias is not the same as model performance, its significance in model selection, and how it impacts your projects, whether you're developing niche applications or seeking broader solutions. You'll walk away with the knowledge to incorporate model bias into your selection criteria and strategies to navigate the complexities of generative AI models.
+
+      This talk welcomes anyone interested in generative AI — whether you're a sceptic or a developer. Together, let's examine the hidden biases that shape the models we use and understand their implications for our work.
+  - title: "Mastering Multi-Agent Madness With Microsoft Agent Framework"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/mastering-multi-agent-madness-with-microsoft-agent/134435"
+    short: "How to effectively combine pre-built orchestrations with custom workflows to create sophisticated multi-agent applications."
+    full: |
+      Learn how agents can communicate to achieve greater results or when a more deterministic approach is necessary to prevent communication breakdowns. We will also cover adding tools to your agents, recognising when to solicit human input, and leveraging Microsoft Agent Framework with the Azure AI Agent Service.
+
+      This talk is perfect for software engineers eager to dive into the world of agents. Expect many demos that will pave the way for you to build your first multi-agent application confidently!
+  - title: "Toxic Trust: The Psychology of Automation Bias in Generative AI"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/toxic-trust-the-psychology-of-automation-bias-in-g/105397"
+    short: "The hidden dangers of automation bias in generative AI — a cognitive trap where we too readily trust machine-generated content."
+    full: |
+      We'll examine the psychological aspects of this bias and its impact on text, images, and code, and provide actionable strategies for increasing awareness and reducing bias. We will close with a live demo showcasing practical examples and innovative approaches to transform your interaction with generative AI.
+
+      This talk is ideal for anyone interested in generative AI and how we work with it. Come prepared to challenge your assumptions and change your relationship with AI.
+  - title: "Yes-Bots: How Chatbots Gaslight You Into Delusion"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/yes-bots-how-chatbots-gaslight-you-into-delusion/169035"
+    short: "Your chatbot agrees with you a little too much, and that should worry you. We'll explore AI Psychosis: the subtle ways AI applications shift your perception of reality."
+    full: |
+      You'll learn why large language models are sycophantic by design, how research shows that even perfectly rational thinkers can spiral into delusion when a chatbot keeps telling them what they want to hear, and what role emotion concepts in LLMs play in all of this. We'll also look at practical strategies to defend yourself against these effects.
+
+      This talk is for anyone with an opinion on AI, whether you're a fan, a critic, or somewhere in between. Come ready to question your relationship with your favourite chatbot and leave knowing how to spot sycophantic behaviour before it reshapes your thinking.
+  - title: "Build Your Own Coding Agent"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/build-your-own-coding-agent/167132"
+    isWorkshop: true
+    short: "Every application is an agent now, or is it? In this hands-on workshop, we'll implement the inner workings of an agent that can autonomously chase a goal and complete tasks."
+    full: |
+      You'll learn the fundamentals using Microsoft Agent Framework — including tool usage, memory management, and skill integration — enabling you to create effective agents that go beyond simple RAG chatbots.
+
+      The day kicks off with an introductory presentation that sets the stage for our hands-on labs. Together, we'll construct the foundational elements of a coding agent. Your agent will learn to find the right files, make changes, and even commit them to Git. In the afternoon, we'll focus on adding features such as specialised subagents. Throughout the workshop, you'll have access to two experts ready to answer your questions and provide guidance.
+
+      Prerequisites: a laptop, some experience with C#, a GitHub account, Visual Studio Code (or permission to install software). No prior agent-development experience necessary.
+
+      What you'll walk away with: a fully functional coding agent and the confidence to implement your own agents in future projects.
+  - title: "Think Twice About Running Your Business With Agents"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/think-twice-about-running-your-business-with-agent/161520"
+    short: "Why LLM-based agents may not be the best fit for your business processes, despite the hype surrounding them."
+    full: |
+      You'll learn about the inherent capabilities and limitations of large language models, the common workarounds proposed by tech vendors, and why these solutions often miss the mark. By the end of the session, you'll walk away with a practical 3-step process for implementing automation with LLMs in a way that truly works.
+
+      This talk is perfect for anyone interested in artificial intelligence, especially developers and decision-makers who want to engage critically with current AI trends.
+  - title: "Write Drunk, Edit Sober: Creating Generative Content Responsibly"
+    url: "https://sessionize.com/s/matthijs-van-der-veer/write-drunk-edit-sober-creating-generative-content/153588"
+    short: "Examining the growing concern over low-quality generative AI content — and how we can build automated systems that produce high-quality output."
+    full: |
+      You'll learn to identify the signs of 'AI Slop' and implement strategies that counteract our automation bias, ensuring that the content we create meets the standards we expect. Using session-abstract generation as a case study, I'll provide practical guidelines to elevate the quality of your AI-generated content.
+
+      This talk is designed for developers and IT professionals who are dedicated to improving the quality of AI-driven content in their organisations. Get ready to roll up your sleeves and discover how a little effort can lead to significant improvements in the content we create.

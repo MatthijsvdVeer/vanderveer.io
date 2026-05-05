@@ -1,28 +1,132 @@
 ---
 layout: default
 ---
-<div class="home">
-  {%- include bio.html -%}
 
-  <h2 class="post-list-heading">{{ page.title | default: "Posts" }}</h2>
+{%- comment -%}
+  Sort posts newest-first and split into:
+    featured (newest)
+    understory (next 3)
+    floor (the rest)
+{%- endcomment -%}
+{%- assign featured = site.posts | first -%}
+{%- assign rest = site.posts | slice: 1, 100 -%}
+{%- assign understory = rest | slice: 0, 3 -%}
+{%- assign floor = rest | slice: 3, 100 -%}
 
-  <ul class="post-list">
-    {%- for post in site.posts -%}
-    <li>
-      <span class="post-meta">{{ post.date | date: "%B %d, %Y" }}</span>
-      <h3>
-        {%- if post.external_url -%}
-          <a class="post-link" href="{{ post.external_url }}" target="_blank" rel="noopener">{{ post.title | escape }} ↗</a>
+{%- assign textures = "fog,moss,bark,water,stone,leaf,fern" | split: "," -%}
+
+<!-- ── Hero — the sky ────────────────────────────────────── -->
+<section class="hero">
+  {% include parallax.html %}
+  <div class="hero__inner">
+    <div class="hero__eyebrow">◢ Field notes from above &amp; below</div>
+    <h1 class="hero__title">Survey first.<br /><em>Then descend.</em></h1>
+    <p class="hero__lede">
+      Writing about LLMs, agents, edge AI and the occasional D&amp;D campaign — by
+      <strong>{{ site.author }}</strong>, {{ site.author_bio | split: '.' | first }}.
+    </p>
+  </div>
+  <div class="hero__scroll">Scroll to descend</div>
+</section>
+
+{%- if featured -%}
+<!-- ── Canopy — most recent ─────────────────────────────── -->
+<section class="band band--canopy">
+  <div class="band__eyebrow">I · The Canopy — Latest</div>
+  <article class="featured">
+    <div class="featured__image">
+      {%- assign tex = featured.texture | default: "fog" -%}
+      {% include texture.html kind=tex %}
+    </div>
+    <div>
+      <div class="featured__meta">
+        {{ featured.date | date: "%B %d, %Y" }} · {{ featured.read_time | default: "6" }} min
+      </div>
+      <h2 class="featured__title">
+        {%- if featured.external_url -%}
+          <a href="{{ featured.external_url }}" target="_blank" rel="noopener">{{ featured.title | escape }} ↗</a>
         {%- else -%}
-          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          <a href="{{ featured.url | relative_url }}">{{ featured.title | escape }}</a>
         {%- endif -%}
-      </h3>
-      {%- if post.description -%}
-        <p>{{ post.description }}</p>
-      {%- elsif post.excerpt -%}
-        <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+      </h2>
+      {%- if featured.description -%}
+        <p class="featured__desc">{{ featured.description }}</p>
+      {%- elsif featured.excerpt -%}
+        <p class="featured__desc">{{ featured.excerpt | strip_html | truncatewords: 40 }}</p>
       {%- endif -%}
-    </li>
+      <a class="featured__cta" href="{% if featured.external_url %}{{ featured.external_url }}{% else %}{{ featured.url | relative_url }}{% endif %}">Read the post →</a>
+    </div>
+  </article>
+</section>
+{%- endif -%}
+
+{%- if understory.size > 0 -%}
+<!-- ── Understory ───────────────────────────────────────── -->
+<section class="band band--understory">
+  <div class="band__eyebrow">II · The Understory</div>
+  <h2 class="band__title">Recent — closer now.</h2>
+  <div class="understory">
+    {%- for post in understory -%}
+      {%- assign tex = post.texture -%}
+      {%- unless tex -%}
+        {%- assign tex_idx = forloop.index0 | modulo: 7 -%}
+        {%- assign tex = textures[tex_idx] -%}
+      {%- endunless -%}
+      <article class="card">
+        <div class="card__media">
+          {% include texture.html kind=tex %}
+          <div class="card__tag-overlay">
+            {%- if post.tags.size > 0 -%}
+              {%- for t in post.tags limit: 2 -%}<span>{{ t }}</span>{%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="card__body">
+          <div class="card__tags">{{ post.date | date: "%b %Y" }}</div>
+          <h3 class="card__title">
+            {%- if post.external_url -%}
+              <a href="{{ post.external_url }}" target="_blank" rel="noopener">{{ post.title | escape }} ↗</a>
+            {%- else -%}
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            {%- endif -%}
+          </h3>
+          {%- if post.description -%}
+            <p class="card__desc">{{ post.description }}</p>
+          {%- elsif post.excerpt -%}
+            <p class="card__desc">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+          {%- endif -%}
+          <div class="card__meta">{{ post.read_time | default: "5" }} min read</div>
+        </div>
+      </article>
     {%- endfor -%}
-  </ul>
-</div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- if floor.size > 0 -%}
+<!-- ── Forest floor — archive ──────────────────────────── -->
+<section class="band band--floor">
+  <div class="band__eyebrow">III · The Forest Floor — Archive</div>
+  <h2 class="band__title">Older roots.</h2>
+  <div class="floor-list">
+    {%- for post in floor -%}
+      {%- assign tex_idx = forloop.index0 | modulo: 7 -%}
+      {%- assign tex = post.texture | default: textures[tex_idx] -%}
+      <a class="floor-row" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | relative_url }}{% endif %}"{% if post.external_url %} target="_blank" rel="noopener"{% endif %}>
+        <div class="floor-row__media">{% include texture.html kind=tex %}</div>
+        <div>
+          <div class="floor-row__date">{{ post.date | date: "%B %d, %Y" }}</div>
+          <h3 class="floor-row__title">{{ post.title | escape }}{% if post.external_url %} ↗{% endif %}</h3>
+          {%- if post.description -%}
+            <p class="floor-row__desc">{{ post.description }}</p>
+          {%- endif -%}
+        </div>
+        <div class="floor-row__aside">
+          {{ post.read_time | default: "5" }} min<br />
+          {%- if post.tags.size > 0 -%}{{ post.tags | first }}{%- else -%}Post{%- endif -%}
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}

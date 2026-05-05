@@ -6,6 +6,7 @@ description: "Stop using shared access policies to connect to IoT Hub, and start
 ---
 
 IoT Hub offers a way to connect to its Service control plane by using Role-Based Access Control (RBAC). On top of that, you can completely disable access for shared access policies, which used to be the only way to connect to this plane. There are 4 built-in roles that Azure provides you with (excerpt from [Microsoft Documentation][1])
+
 |Role|Description|
 |---|---|
 |IoT Hub Data Contributor|Allows full access to IoT Hub data plane operations.|
