@@ -41,3 +41,7 @@ exclude:
   - node_modules/
   - LICENSE
   - README.md
+
+collections:
+  books:
+    output: false

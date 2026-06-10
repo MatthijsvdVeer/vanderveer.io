@@ -112,7 +112,7 @@ permalink: /about/
 
     <div class="about__currently">
       <div class="label">Currently</div>
-      <div>Writing about agent reliability patterns and safety. Reading <em>Enshittification</em>. Mostly walking the dog.</div>
+      <div>Moving away from technical <em>How To AI</em> presentations. I'd rather teach the general public to understand generative AI and its many challenges. Let's break through some myths together!</div>
     </div>
   </aside>
 </section>
