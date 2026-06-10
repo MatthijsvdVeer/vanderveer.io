@@ -1,0 +1,167 @@
+---
+layout: default
+title: Books
+permalink: /books/
+---
+
+{%- assign books = site.books | sort: "date" | reverse -%}
+{%- assign tones = "ink,bark,moss,clay,water,stone" | split: "," -%}
+
+<section class="books" data-screen-label="Books page">
+  <div class="books__eyebrow">◢ The shelf — gathered &amp; carried home</div>
+  <h1 class="books__title">Books worth <em>circling back for.</em></h1>
+  <p class="books__lede">
+    Here are some of the books that made a mark on me. It's far from complete.
+    Most of these books made me feel <i>something</i>, and I hope they do the same for you.
+  </p>
+
+  <div class="books__count">
+    <span>{{ books.size }} volume{% if books.size != 1 %}s{% endif %}</span>
+  </div>
+
+  <ul class="shelf" id="shelf">
+    {%- for book in books -%}
+      {%- assign tone_idx = forloop.index0 | modulo: 6 -%}
+      {%- assign tone = book.tone | default: tones[tone_idx] -%}
+      <li class="shelf__item" data-screen-label="Book: {{ book.title | escape }}">
+        <button class="shelf__book" type="button" aria-expanded="false">
+          {%- if book.cover -%}
+            <div class="cover">
+              <img src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title | escape }}" loading="lazy" />
+            </div>
+          {%- else -%}
+            <div class="cover cover--ph cover--{{ tone }}">
+              <div class="cover__frame"></div>
+              <div class="cover__a">{{ book.author | escape }}</div>
+              <div class="cover__t">{{ book.title | escape }}</div>
+            </div>
+          {%- endif -%}
+          <div class="shelf__label">
+            <h3 class="shelf__title">{{ book.title | escape }}</h3>
+            <div class="shelf__author">{{ book.author | escape }}</div>
+          </div>
+        </button>
+        <template>
+          <div data-meta="Read · {{ book.date | date: '%B %Y' }}"></div>
+          <div data-body>{{ book.content | markdownify }}</div>
+        </template>
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+<script>
+// ── Shelf: open one book to descend ─────────────────────────
+(function () {
+  var shelf = document.getElementById('shelf');
+  if (!shelf) return;
+  var items = Array.prototype.slice.call(shelf.querySelectorAll('.shelf__item'));
+  var openIndex = -1;
+
+  // Single reusable detail panel
+  var perch = document.createElement('li');
+  perch.className = 'perch';
+  perch.setAttribute('aria-live', 'polite');
+  perch.innerHTML =
+    '<div class="perch__caret"></div>' +
+    '<div class="perch__inner">' +
+      '<button class="perch__close" type="button">Close ✕</button>' +
+      '<div class="perch__cover"></div>' +
+      '<div class="perch__text">' +
+        '<div class="perch__meta"></div>' +
+        '<h2 class="perch__title"></h2>' +
+        '<p class="perch__author"></p>' +
+        '<div class="perch__body"></div>' +
+      '</div>' +
+    '</div>';
+
+  perch.querySelector('.perch__close').addEventListener('click', function () { close(); });
+
+  function columnCount() {
+    var cols = getComputedStyle(shelf).gridTemplateColumns.split(' ').length;
+    return Math.max(1, cols);
+  }
+
+  function rowEndIndex(i) {
+    var cols = columnCount();
+    return Math.min(Math.ceil((i + 1) / cols) * cols, items.length) - 1;
+  }
+
+  function positionCaret(item) {
+    var caret = perch.querySelector('.perch__caret');
+    var center = item.offsetLeft + item.offsetWidth / 2;
+    caret.style.left = center + 'px';
+  }
+
+  function setHeight(animate) {
+    var inner = perch.querySelector('.perch__inner');
+    var h = inner.offsetHeight + 22; /* margin-top */
+    if (!animate) perch.style.transition = 'none';
+    perch.style.height = h + 'px';
+    if (!animate) {
+      void perch.offsetHeight;
+      perch.style.transition = '';
+    }
+  }
+
+  function open(i) {
+    var item = items[i];
+    var tpl = item.querySelector('template').content;
+    var coverClone = item.querySelector('.cover').cloneNode(true);
+
+    perch.querySelector('.perch__cover').replaceChildren(coverClone);
+    perch.querySelector('.perch__meta').textContent = tpl.querySelector('[data-meta]').getAttribute('data-meta');
+    perch.querySelector('.perch__title').textContent = item.querySelector('.shelf__title').textContent;
+    perch.querySelector('.perch__author').textContent = item.querySelector('.shelf__author').textContent;
+    perch.querySelector('.perch__body').innerHTML = tpl.querySelector('[data-body]').innerHTML;
+
+    items.forEach(function (it) { it.classList.remove('is-open'); });
+    item.classList.add('is-open');
+    item.querySelector('.shelf__book').setAttribute('aria-expanded', 'true');
+
+    var anchor = items[rowEndIndex(i)];
+    anchor.after(perch);
+    openIndex = i;
+
+    perch.style.height = '0px';
+    void perch.offsetHeight;
+    setHeight(true);
+    positionCaret(item);
+
+    var top = item.getBoundingClientRect().top;
+    if (top < 90) {
+      window.scrollBy({ top: top - 110, behavior: 'smooth' });
+    }
+  }
+
+  function close() {
+    if (openIndex < 0) return;
+    items[openIndex].classList.remove('is-open');
+    items[openIndex].querySelector('.shelf__book').setAttribute('aria-expanded', 'false');
+    openIndex = -1;
+    perch.style.height = '0px';
+    perch.addEventListener('transitionend', function onEnd() {
+      perch.removeEventListener('transitionend', onEnd);
+      if (openIndex < 0 && perch.parentNode) perch.remove();
+    });
+  }
+
+  items.forEach(function (item, i) {
+    item.querySelector('.shelf__book').addEventListener('click', function () {
+      if (openIndex === i) { close(); } else { open(i); }
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  window.addEventListener('resize', function () {
+    if (openIndex < 0) return;
+    var anchor = items[rowEndIndex(openIndex)];
+    if (perch.previousElementSibling !== anchor) anchor.after(perch);
+    setHeight(false);
+    positionCaret(items[openIndex]);
+  });
+})();
+</script>

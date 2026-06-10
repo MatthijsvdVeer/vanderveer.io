@@ -553,3 +553,182 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   background: rgba(251,250,244,.92); color: var(--moss);
   padding: 4px 8px; border-radius: 999px;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Books — the shelf (survey) and the perch (descend)
+   Append this block to assets/css/main.scss
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Books page header ────────────────────────────────────── */
+.books {
+  max-width: 1080px; margin: 0 auto;
+  padding: 150px 32px 96px;
+}
+.books__eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .25em;
+  text-transform: uppercase; color: var(--moss-2); margin-bottom: 16px;
+}
+.books__title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 400; line-height: 1.0; letter-spacing: -.02em;
+  color: var(--ink); margin: 0;
+}
+.books__title em { font-style: italic; color: var(--moss); }
+.books__lede {
+  font-size: 17px; line-height: 1.6; color: var(--ink-3);
+  margin: 20px 0 0; max-width: 560px;
+}
+.books__count {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--fog);
+  margin: 56px 0 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.books__count::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+/* ── The shelf (survey) ───────────────────────────────────── */
+.shelf {
+  list-style: none; margin: 0; padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 40px 28px;
+}
+.shelf__item { margin: 0; }
+.shelf__book {
+  display: block; width: 100%;
+  background: none; border: 0; padding: 0; margin: 0;
+  font: inherit; text-align: left; cursor: pointer; color: inherit;
+}
+.cover {
+  aspect-ratio: 2 / 3;
+  border-radius: 2px 5px 5px 2px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(20,30,18,.16), 0 12px 24px rgba(20,30,18,.10);
+  transition: transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s;
+}
+/* spine shading — makes any cover image read as a physical book */
+.cover::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(0,0,0,.18) 0%, rgba(255,255,255,.12) 1.5%,
+    rgba(0,0,0,.08) 3.5%, rgba(0,0,0,0) 7%);
+  border-radius: inherit;
+}
+.shelf__book:hover .cover,
+.shelf__book:focus-visible .cover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px rgba(20,30,18,.18), 0 24px 44px rgba(20,30,18,.16);
+}
+.shelf__book:focus-visible { outline: none; }
+.shelf__book:focus-visible .cover { outline: 2px solid var(--accent); outline-offset: 3px; }
+.shelf__item.is-open .cover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px rgba(20,30,18,.18), 0 24px 44px rgba(20,30,18,.16);
+}
+.cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Typographic placeholder covers (books without a cover image) */
+.cover--ph {
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 14px;
+}
+.cover--ph .cover__frame {
+  position: absolute; inset: 8px; border: 1px solid currentColor;
+  opacity: .35; pointer-events: none; border-radius: 1px;
+}
+.cover--ph .cover__t {
+  font-family: var(--serif); font-weight: 500;
+  font-size: 19px; line-height: 1.12; letter-spacing: -.01em;
+  margin-top: 18px;
+}
+.cover--ph .cover__a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
+  text-transform: uppercase; opacity: .75;
+}
+/* placeholder tones — all from the site palette family */
+.cover--moss  { background: #3d4a3d; color: #e9ead9; }
+.cover--bark  { background: #5a4a3c; color: #efe7d8; }
+.cover--water { background: #3c505c; color: #dde6e4; }
+.cover--stone { background: #80817a; color: #f1f0e6; }
+.cover--ink   { background: #232b22; color: #dfe3cf; }
+.cover--clay  { background: #7a4a2a; color: #f3e9d8; }
+
+.shelf__label { margin-top: 14px; }
+.shelf__title {
+  font-family: var(--serif); font-size: 18px; font-weight: 500;
+  line-height: 1.2; letter-spacing: -.008em; color: var(--ink-2);
+  margin: 0; transition: color .2s;
+}
+.shelf__book:hover .shelf__title { color: var(--accent); }
+.shelf__item.is-open .shelf__title { color: var(--accent); }
+.shelf__author {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--fog); margin-top: 5px;
+}
+
+/* ── The descent (detail panel) ───────────────────────────── */
+.perch {
+  grid-column: 1 / -1;
+  overflow: hidden;
+  height: 0;
+  transition: height .45s cubic-bezier(.2,.7,.3,1);
+  position: relative;
+}
+.perch__caret {
+  position: absolute; top: 1px; width: 16px; height: 16px;
+  background: var(--bg-warm);
+  border-left: 1px solid var(--rule); border-top: 1px solid var(--rule);
+  transform: translateX(-50%) rotate(45deg);
+  margin-top: 14px;
+  transition: left .3s cubic-bezier(.2,.7,.3,1);
+  z-index: 1;
+}
+.perch__inner {
+  margin-top: 22px;
+  background: var(--bg-warm);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 44px 48px;
+  display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+  align-items: start;
+  position: relative;
+}
+.perch__cover { position: sticky; top: 110px; }
+.perch__cover .cover { box-shadow: 0 3px 8px rgba(20,30,18,.2), 0 22px 40px rgba(20,30,18,.16); }
+.perch__meta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--fog); margin-bottom: 12px;
+}
+.perch__title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 400; line-height: 1.04; letter-spacing: -.015em;
+  color: var(--ink); margin: 0;
+}
+.perch__author {
+  font-family: var(--serif); font-style: italic;
+  font-size: 19px; color: var(--moss); margin: 10px 0 0;
+}
+.perch__body { margin-top: 24px; font-size: 16px; line-height: 1.7; color: var(--ink-3); max-width: 620px; }
+.perch__body p { margin: 0 0 16px; }
+.perch__body p:first-of-type::first-letter {
+  font-family: var(--serif);
+  font-size: 3.4em; line-height: .85; float: left;
+  margin: 5px 9px 0 0; color: var(--ink-2); font-weight: 500;
+}
+.perch__close {
+  position: absolute; top: 18px; right: 20px;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--moss-2);
+  padding: 8px 10px;
+}
+.perch__close:hover { color: var(--accent); }
+@media (max-width: 720px) {
+  .books { padding: 120px 24px 64px; }
+  .shelf { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 32px 20px; }
+  .perch__inner { grid-template-columns: 1fr; gap: 28px; padding: 28px 24px; }
+  .perch__cover { position: static; max-width: 180px; }
+}
