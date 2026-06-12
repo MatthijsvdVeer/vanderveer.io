@@ -42,7 +42,7 @@ permalink: /books/
           </div>
         </button>
         <template>
-          <div data-meta="Read · {{ book.date | date: '%B %Y' }}"></div>
+          <div data-meta="Read · {{ book.date | date: '%B %Y' }}"{% if book.buy %} data-buy="{{ book.buy }}"{% endif %}></div>
           <div data-body>{{ book.content | markdownify }}</div>
         </template>
       </li>
@@ -72,6 +72,7 @@ permalink: /books/
         '<h2 class="perch__title"></h2>' +
         '<p class="perch__author"></p>' +
         '<div class="perch__body"></div>' +
+        '<a class="perch__buy" target="_blank" rel="noopener noreferrer">Carry it home ↗</a>' +
       '</div>' +
     '</div>';
 
@@ -114,6 +115,16 @@ permalink: /books/
     perch.querySelector('.perch__title').textContent = item.querySelector('.shelf__title').textContent;
     perch.querySelector('.perch__author').textContent = item.querySelector('.shelf__author').textContent;
     perch.querySelector('.perch__body').innerHTML = tpl.querySelector('[data-body]').innerHTML;
+
+    var buyEl = perch.querySelector('.perch__buy');
+    var buyUrl = tpl.querySelector('[data-meta]').getAttribute('data-buy');
+    if (buyUrl) {
+      buyEl.href = buyUrl;
+      buyEl.style.display = '';
+    } else {
+      buyEl.removeAttribute('href');
+      buyEl.style.display = 'none';
+    }
 
     items.forEach(function (it) { it.classList.remove('is-open'); });
     item.classList.add('is-open');
