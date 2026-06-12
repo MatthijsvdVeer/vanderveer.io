@@ -718,6 +718,16 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   font-size: 3.4em; line-height: .85; float: left;
   margin: 5px 9px 0 0; color: var(--ink-2); font-weight: 500;
 }
+.perch__buy {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 10px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--moss);
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: 10px 16px;
+  transition: color .15s, border-color .15s;
+}
+.perch__buy:hover { color: var(--accent); border-color: var(--accent); }
 .perch__close {
   position: absolute; top: 18px; right: 20px;
   background: none; border: 0; cursor: pointer;
