@@ -106,7 +106,6 @@ permalink: /about/
     <div class="socials">
       <a href="{{ site.social.github }}"><span class="social__name">GitHub</span><span class="social__handle">@MatthijsvdVeer</span></a>
       <a href="{{ site.social.linkedin }}"><span class="social__name">LinkedIn</span><span class="social__handle">matthijsvanderveer</span></a>
-      <a href="{{ site.social.substack }}"><span class="social__name">Substack</span><span class="social__handle">matthijsvdveer</span></a>
       <a href="https://sessionize.com/matthijs-van-der-veer"><span class="social__name">Sessionize</span><span class="social__handle">book a talk</span></a>
     </div>
 

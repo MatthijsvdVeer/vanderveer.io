@@ -17,4 +17,3 @@ This is a personal tech blog covering Microsoft Foundry, Agent Service, Agentic 
 
 - [GitHub]({{ site.social.github }})
 - [LinkedIn]({{ site.social.linkedin }})
-- [Substack]({{ site.social.substack }})
