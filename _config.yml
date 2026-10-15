@@ -26,9 +26,6 @@ plugins:
 header_pages:
   - about.md
 
-# Google Analytics
-google_analytics: UA-121896968-3
-
 # Feed settings
 feed:
   path: feed.xml

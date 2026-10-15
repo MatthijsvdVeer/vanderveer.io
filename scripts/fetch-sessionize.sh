@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Refresh _data/sessionize.yml from the live Sessionize speaker API.
-# Usage (from repo root): ./jekyll/scripts/fetch-sessionize.sh
+# Usage (from repo root): ./scripts/fetch-sessionize.sh
 # Recommended: wire into a GitHub Actions Pages workflow so every build pulls fresh data.
 
 set -euo pipefail

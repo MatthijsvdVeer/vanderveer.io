@@ -1,7 +1,13 @@
 # Snapshot of https://sessionize.com/api/speaker/json/32v3odtbr8
-# Refreshed 2026-08-10
+# Refreshed 2026-10-15
 
 events:
+  - id: 25043
+    name: "Cloud Tech Tallinn 2027"
+    start: "2027-02-04"
+    end: "2027-02-05"
+    location: "Tallinn, Estonia"
+    website: "https://cloudtechtallinn.com/"
   - id: 23117
     name: "Techorama 2026 Netherlands  "
     start: "2026-10-26"
