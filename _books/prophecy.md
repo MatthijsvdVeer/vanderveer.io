@@ -1,7 +1,7 @@
 ---
 title: "Prophecy"
 author: "Carissa Véliz"
-date: 2026-06-01
+date: 2026-08-01
 cover: /assets/books/prophecy.jpg
 buy: https://libris.nl/a/carissa-veliz/prophecy/9780385552776
 ---
