@@ -21,7 +21,7 @@ Two ways to refresh it:
 **Manual.** From the repo root:
 
 ```bash
-./jekyll/scripts/fetch-sessionize.sh
+./scripts/fetch-sessionize.sh
 ```
 
 Commits the updated YAML; next build picks it up.
@@ -30,7 +30,7 @@ Commits the updated YAML; next build picks it up.
 
 ```yaml
 - name: Refresh Sessionize data
-  run: ./jekyll/scripts/fetch-sessionize.sh
+  run: ./scripts/fetch-sessionize.sh
 ```
 
 Every deploy then pulls fresh sessions + events. Note: GitHub Pages' default build doesn't run custom steps; you'll need a `pages.yml` workflow that does `actions/configure-pages` → fetch script → `jekyll build` → `actions/deploy-pages`.
