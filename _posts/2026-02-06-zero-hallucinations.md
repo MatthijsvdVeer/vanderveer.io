@@ -4,6 +4,7 @@ title: "You Can't Buy Your Way to Zero Hallucinations"
 date: 2026-02-06
 description: "My theory: improving LLM output always requires a higher token count and, therefore, cost."
 ---
+
 For a while now, I’ve been playing around with the idea that all the techniques we use to improve the results from large language models (e.g. reducing hallucinations) are fundamentally about one thing: spending more tokens. If you’re unfamiliar with the term, tokens are the pieces of text that you send to an LLM, and the pieces of text it sends back. They’re also the units that LLM providers charge you for. The more tokens you send or receive, the more you pay.
 
 Much like an LLM, I spent way too much time and words organising my thoughts on this topic, until I stumbled on a post by Anthropic that reignited my thinking. In [their post on multi-agent systems][1], one thing stood out:
