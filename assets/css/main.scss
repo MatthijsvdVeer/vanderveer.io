@@ -337,6 +337,14 @@ a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .post-content img { max-width: 100%; height: auto; border-radius: 4px; margin: 24px 0; }
 .post-content hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
 
+/* book cover floated beside the text — see _includes/book-aside.html */
+.book-aside { float: right; width: 150px; margin: 6px 0 16px 28px; }
+.book-aside a { display: block; border: 0; }
+.post-content .book-aside img { margin: 0; }
+@media (max-width: 520px) {
+  .book-aside { width: 110px; margin-left: 18px; }
+}
+
 .post__divider {
   display: flex; align-items: center; gap: 14px;
   margin: 56px 0 24px;

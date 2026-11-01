@@ -1,0 +1,8 @@
+{%- assign book = site.books | where: "slug", include.book | first -%}
+<figure class="book-aside">
+  <a href="{{ book.buy }}">
+    <div class="cover">
+      <img src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title | escape }}" loading="lazy" />
+    </div>
+  </a>
+</figure>
