@@ -51,7 +51,7 @@ h1,h2,h3{margin:0}
 .wrap{max-width:1280px;margin:0 auto;padding-left:24px;padding-right:24px}
 .skip{position:absolute;left:16px;top:-60px;z-index:10;padding:10px 16px;background:var(--fg);color:var(--bg);font-weight:600;text-decoration:none}
 .skip:focus{top:16px}
-main{display:block;overflow:hidden}
+main{display:block;overflow:hidden;overflow:clip}
 .accent{color:var(--ink)}
 .link-ink{display:inline-flex;align-items:center;min-height:44px;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:15px;color:var(--ink);text-decoration:none}
 .link-ink:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
