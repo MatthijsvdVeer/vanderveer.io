@@ -1,8 +1,8 @@
-{%- assign book = site.books | where: "slug", include.book | first -%}
+{%- comment -%} A book cover floated beside the text. Usage: {% include book-aside.html book="prophecy" %} {%- endcomment -%}
+{%- assign _ab = site.books | where: "slug", include.book | first -%}
+{%- if _ab %}
 <figure class="book-aside">
-  <a href="{{ book.buy }}">
-    <div class="cover">
-      <img src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title | escape }}" loading="lazy" />
-    </div>
-  </a>
+  <a href="{{ _ab.buy | default: '/#reading' }}"><img src="{{ _ab.cover | relative_url }}" alt="Cover of {{ _ab.title | escape }}" width="168" height="252" loading="lazy"></a>
+  <figcaption><span class="t">{{ _ab.title | escape }}</span>{{ _ab.author | escape }}</figcaption>
 </figure>
+{%- endif -%}

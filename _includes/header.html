@@ -1,11 +1,18 @@
-<header class="site-header" role="banner">
-  <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
-    {% include feather.html %}
-    {{ site.title | escape | replace: "'s Blog", "" }}
-  </a>
-  <nav class="site-nav">
-    <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="is-active"{% endif %}>Articles</a>
-    <a href="{{ '/books/' | relative_url }}"{% if page.url contains '/books' %} class="is-active"{% endif %}>Books</a>
-    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="is-active"{% endif %}>About</a>
-  </nav>
+{%- assign is_post = false -%}
+{%- if page.layout == 'post' or page.url == '/writing/' -%}{%- assign is_post = true -%}{%- endif -%}
+<header class="site-header wrap" id="top">
+  <a class="brand" href="{{ '/' | relative_url }}">vanderveer.io</a>
+  <div class="header-right">
+    <nav class="site-nav" aria-label="Sections">
+      <a href="{{ '/#writing' | relative_url }}"{% if is_post %} aria-current="page"{% endif %}><span class="num">01</span><span class="label">Writing</span></a>
+      <a href="{{ '/#reading' | relative_url }}"><span class="num">02</span><span class="label">Reading</span></a>
+      <a href="{{ '/#speaking' | relative_url }}"><span class="num">03</span><span class="label">Speaking</span></a>
+      <a href="{{ '/#contact' | relative_url }}"><span class="num">04</span><span class="label">Contact</span></a>
+    </nav>
+    <div class="theme-switch" role="group" aria-label="Colour theme">
+      <button type="button" data-mode="auto" aria-pressed="true" aria-label="Match system theme" title="Match system theme"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg><span class="t-label" aria-hidden="true">Auto</span></button>
+      <button type="button" data-mode="light" aria-pressed="false" aria-label="Light theme" title="Light theme"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span class="t-label" aria-hidden="true">Light</span></button>
+      <button type="button" data-mode="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><span class="t-label" aria-hidden="true">Dark</span></button>
+    </div>
+  </div>
 </header>

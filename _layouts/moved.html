@@ -1,0 +1,13 @@
+---
+layout: default
+---
+{%- assign target = page.moved_to | relative_url -%}
+<section class="lost">
+  <div class="lost__inner wrap">
+    <p class="label">This page moved</p>
+    <h1 class="sec-title" style="font-size:clamp(48px,8vw,104px)">{{ page.title }} lives on the homepage now.</h1>
+    <p style="margin-top:32px"><a class="link-ink" href="{{ target }}">→ Take me there</a></p>
+  </div>
+</section>
+<script>window.location.replace("{{ target }}");</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ target }}"></noscript>

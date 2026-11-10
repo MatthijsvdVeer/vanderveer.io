@@ -1,0 +1,34 @@
+---
+layout: default
+title: Writing
+permalink: /writing/
+description: "Every post on vanderveer.io, newest first."
+---
+{%- assign years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+<section class="archive" aria-labelledby="archive-title">
+  {% include die.html type="d10" %}
+  <div class="archive__inner wrap">
+    <a class="link-ink" href="{{ '/' | relative_url }}">← Home</a>
+    <div class="sec-head archive__head">
+      <h1 class="sec-title" id="archive-title"><span class="eyebrow">01 / All {{ site.posts.size }} posts</span>Writing</h1>
+      <p class="sec-intro">Essays on generative AI, the occasional build log, and a long tail of IoT tutorials. Newest first.</p>
+    </div>
+    {%- for y in years %}
+    <div class="year">
+      <h2 class="year__label">{{ y.name }}<span>{{ y.size }} {% if y.size == 1 %}post{% else %}posts{% endif %}</span></h2>
+      <div class="year__posts">
+        {%- for post in y.items -%}
+        {%- if post.external_url -%}{%- assign href = post.external_url -%}{%- else -%}{%- assign href = post.url | relative_url -%}{%- endif %}
+        <a class="arch-post" href="{{ href }}">
+          <span class="arch-post__day">{{ post.date | date: "%d.%m" }}</span>
+          <span class="arch-post__body">
+            <span class="arch-post__title">{{ post.title | escape }}{% if post.external_url %} ↗{% endif %}</span>
+            {%- if post.description and post.description != "" %}<span class="arch-post__desc">{{ post.description | escape }}</span>{% endif %}
+          </span>
+        </a>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>

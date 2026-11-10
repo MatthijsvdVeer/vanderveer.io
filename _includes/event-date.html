@@ -1,0 +1,9 @@
+{%- comment -%} 04–05.02.27, or 11.03.26 for a one-day event. {%- endcomment -%}
+{%- assign _s = include.ev.start -%}
+{%- assign _e = include.ev.end | default: _s -%}
+{%- assign _sm = _s | slice: 0, 7 -%}
+{%- assign _em = _e | slice: 0, 7 -%}
+{%- if _s == _e -%}{{ _s | date: "%d.%m.%y" }}
+{%- elsif _sm == _em -%}{{ _s | date: "%d" }}–{{ _e | date: "%d.%m.%y" }}
+{%- else -%}{{ _s | date: "%d.%m" }}–{{ _e | date: "%d.%m.%y" }}
+{%- endif -%}

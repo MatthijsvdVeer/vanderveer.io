@@ -1,132 +1,182 @@
 ---
 layout: default
 ---
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign all_events = site.data.sessionize.events | sort: "start" -%}
+{%- assign upcoming = "" | split: "" -%}
+{%- assign past = "" | split: "" -%}
+{%- for ev in all_events -%}
+  {%- if ev.end >= today -%}{%- assign upcoming = upcoming | push: ev -%}{%- else -%}{%- assign past = past | push: ev -%}{%- endif -%}
+{%- endfor -%}
+{%- assign past = past | reverse -%}
+{%- assign books = site.books | sort: "date" | reverse -%}
+{%- assign sessions = site.data.sessionize.sessions -%}
 
-{%- comment -%}
-  Sort posts newest-first and split into:
-    featured (newest)
-    understory (next 3)
-    floor (the rest)
-{%- endcomment -%}
-{%- assign featured = site.posts | first -%}
-{%- assign rest = site.posts | slice: 1, 100 -%}
-{%- assign understory = rest | slice: 0, 3 -%}
-{%- assign floor = rest | slice: 3, 100 -%}
-
-{%- assign textures = "fog,moss,bark,water,stone,leaf,fern" | split: "," -%}
-
-<!-- ── Hero — the sky ────────────────────────────────────── -->
 <section class="hero">
-  {% include parallax.html %}
-  <div class="hero__inner">
-    <div class="hero__eyebrow">◢ Field notes from above &amp; below</div>
-    <h1 class="hero__title">Technology and Magic<br /><em>With a dash of skepticism.</em></h1>
-    <p class="hero__lede">
-      Writing about LLMs, agents, edge AI and the occasional D&amp;D campaign — by
-      <strong>{{ site.author }}</strong>, {{ site.author_bio | split: '.' | first }}.
-    </p>
+  {% include die.html type="d20" lit=true %}
+  <div class="hero__inner wrap">
+    <p class="hero__kicker">{{ site.author }} · {{ site.location | default: "Utrecht" }}</p>
+    <h1 class="hero__title">{{ site.tagline | default: "Technology and magic, with a dash of skepticism." }}</h1>
+    <p class="hero__lede">{{ site.author_bio | escape }}</p>
   </div>
-  <div class="hero__scroll">Scroll to descend</div>
 </section>
 
-{%- if featured -%}
-<!-- ── Canopy — most recent ─────────────────────────────── -->
-<section class="band band--canopy">
-  <div class="band__eyebrow">I · The Canopy — Latest</div>
-  <article class="featured">
-    <div class="featured__image">
-      {%- assign tex = featured.texture | default: "fog" -%}
-      {% include texture.html kind=tex %}
-    </div>
-    <div>
-      <div class="featured__meta">
-        {{ featured.date | date: "%B %d, %Y" }} · {{ featured.read_time | default: "6" }} min
-      </div>
-      <h2 class="featured__title">
-        {%- if featured.external_url -%}
-          <a href="{{ featured.external_url }}" target="_blank" rel="noopener">{{ featured.title | escape }} ↗</a>
-        {%- else -%}
-          <a href="{{ featured.url | relative_url }}">{{ featured.title | escape }}</a>
-        {%- endif -%}
-      </h2>
-      {%- if featured.description -%}
-        <p class="featured__desc">{{ featured.description }}</p>
-      {%- elsif featured.excerpt -%}
-        <p class="featured__desc">{{ featured.excerpt | strip_html | truncatewords: 40 }}</p>
-      {%- endif -%}
-      <a class="featured__cta" href="{% if featured.external_url %}{{ featured.external_url }}{% else %}{{ featured.url | relative_url }}{% endif %}">Read the post →</a>
-    </div>
-  </article>
-</section>
-{%- endif -%}
+<div class="index wrap">
+  <nav class="index__grid" aria-label="On this page">
+    <a class="index__item" href="#writing"><span class="index__num">01</span><span class="index__name">Writing</span><span class="index__meta">{{ site.posts.size }} posts, newest first</span></a>
+    <a class="index__item" href="#reading"><span class="index__num">02</span><span class="index__name">Reading</span><span class="index__meta">{{ books.size }} books worth circling back for</span></a>
+    <a class="index__item" href="#speaking"><span class="index__num">03</span><span class="index__name">Speaking</span><span class="index__meta">{% if upcoming.size > 0 %}{% assign nx = upcoming.first %}Next: {{ nx.location | split: "," | first | strip | default: "online" }}, {{ nx.start | date: "%b %Y" }}{% else %}{{ sessions.size }} talks on offer{% endif %}</span></a>
+    <a class="index__item" href="#contact"><span class="index__num">04</span><span class="index__name">Contact</span><span class="index__meta">Say hello, book a talk</span></a>
+  </nav>
+</div>
 
-{%- if understory.size > 0 -%}
-<!-- ── Understory ───────────────────────────────────────── -->
-<section class="band band--understory">
-  <div class="band__eyebrow">II · The Understory</div>
-  <h2 class="band__title">Recent — closer now.</h2>
-  <div class="understory">
-    {%- for post in understory -%}
-      {%- assign tex = post.texture -%}
-      {%- unless tex -%}
-        {%- assign tex_idx = forloop.index0 | modulo: 7 -%}
-        {%- assign tex = textures[tex_idx] -%}
-      {%- endunless -%}
-      <article class="card">
-        <div class="card__media">
-          {% include texture.html kind=tex %}
-          <div class="card__tag-overlay">
-            {%- if post.tags.size > 0 -%}
-              {%- for t in post.tags limit: 2 -%}<span>{{ t }}</span>{%- endfor -%}
-            {%- endif -%}
-          </div>
-        </div>
-        <div class="card__body">
-          <div class="card__tags">{{ post.date | date: "%b %Y" }}</div>
-          <h3 class="card__title">
-            {%- if post.external_url -%}
-              <a href="{{ post.external_url }}" target="_blank" rel="noopener">{{ post.title | escape }} ↗</a>
-            {%- else -%}
-              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-            {%- endif -%}
-          </h3>
-          {%- if post.description -%}
-            <p class="card__desc">{{ post.description }}</p>
-          {%- elsif post.excerpt -%}
-            <p class="card__desc">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
-          {%- endif -%}
-          <div class="card__meta">{{ post.read_time | default: "5" }} min read</div>
-        </div>
+<section class="section" id="writing" aria-labelledby="writing-title">
+  {% include die.html type="d10" %}
+  <div class="section__inner wrap">
+    <div class="sec-head">
+      <h2 class="sec-title" id="writing-title"><span class="eyebrow">01 / Posts</span>Writing</h2>
+      <p class="sec-intro">Essays on generative AI, the occasional build log, and a long tail of IoT tutorials.</p>
+    </div>
+    {%- for post in site.posts limit: 6 -%}
+      {%- if post.external_url -%}{%- assign href = post.external_url -%}{%- else -%}{%- assign href = post.url | relative_url -%}{%- endif %}
+    <a class="post-row{% if forloop.first %} post-row--lead{% endif %}" href="{{ href }}">
+      <span class="post-row__date">{{ post.date | date: "%d.%m.%Y" }}{% if forloop.first %}<br>Latest{% endif %}</span>
+      <span class="post-row__body">
+        <span class="post-row__title">{{ post.title | escape }}{% if post.external_url %} ↗{% endif %}</span>
+        {%- if post.description %}<span class="post-row__desc">{{ post.description | escape }}</span>{% endif %}
+      </span>
+    </a>
+    {%- endfor %}
+    <a class="link-ink" href="{{ '/writing/' | relative_url }}" style="margin-top:28px">→ All {{ site.posts.size }} posts</a>
+  </div>
+</section>
+
+<section class="section section--alt" id="reading" aria-labelledby="reading-title">
+  {% include die.html type="d12" %}
+  <div class="section__inner wrap">
+    <div class="sec-head">
+      <h2 class="sec-title" id="reading-title"><span class="eyebrow">02 / Books</span>Reading</h2>
+      <p class="sec-intro">Books that made a mark on me. Far from complete, but each one made me feel something.</p>
+    </div>
+    <div class="reading">
+      <article class="book-panel" id="book-panel" aria-live="polite">
+        {%- include book-panel.html book=books.first latest=true %}
       </article>
-    {%- endfor -%}
+      <div class="shelf-wrap">
+        <p class="label" style="margin-bottom:24px">The whole shelf. Pick any book. The ones marked “Note” come with my thoughts.</p>
+        <ul class="shelf">
+          {%- for book in books -%}
+          {%- assign has_note = book.content | strip -%}
+          <li>
+            <button class="shelf__book" type="button" data-book="{{ book.slug }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="book-panel">
+              <img src="{{ book.cover | relative_url }}" alt="" width="112" height="168" loading="lazy">
+              <span class="shelf__title">{{ book.title | escape }}</span>
+              <span class="shelf__author">{{ book.author | escape }}</span>
+              <span class="shelf__tag"><span class="is-on">Showing</span><span class="is-off">{% if has_note != "" %}Note{% endif %}</span></span>
+            </button>
+            <template id="book-{{ book.slug }}">{% include book-panel.html book=book latest=forloop.first %}</template>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
-{%- endif -%}
 
-{%- if floor.size > 0 -%}
-<!-- ── Forest floor — archive ──────────────────────────── -->
-<section class="band band--floor">
-  <div class="band__eyebrow">III · The Forest Floor — Archive</div>
-  <h2 class="band__title">Older roots.</h2>
-  <div class="floor-list">
-    {%- for post in floor -%}
-      {%- assign tex_idx = forloop.index0 | modulo: 7 -%}
-      {%- assign tex = post.texture | default: textures[tex_idx] -%}
-      <a class="floor-row" href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url | relative_url }}{% endif %}"{% if post.external_url %} target="_blank" rel="noopener"{% endif %}>
-        <div class="floor-row__media">{% include texture.html kind=tex %}</div>
-        <div>
-          <div class="floor-row__date">{{ post.date | date: "%B %d, %Y" }}</div>
-          <h3 class="floor-row__title">{{ post.title | escape }}{% if post.external_url %} ↗{% endif %}</h3>
-          {%- if post.description -%}
-            <p class="floor-row__desc">{{ post.description }}</p>
-          {%- endif -%}
+<section class="section" id="speaking" aria-labelledby="speaking-title">
+  {% include die.html type="d8" %}
+  <div class="section__inner wrap">
+    <div class="sec-head">
+      <h2 class="sec-title" id="speaking-title"><span class="eyebrow">03 / Sessions &amp; events</span>Speaking</h2>
+      <p class="sec-intro">Moving away from technical how-to-AI talks. I'd rather help everyone understand generative AI and its many challenges.</p>
+    </div>
+
+    {%- if upcoming.size > 0 -%}
+    {%- assign nx = upcoming.first %}
+    <div class="next-up">
+      <div>
+        <p class="label">Next up</p>
+        <p class="next-up__date">{% include event-date.html ev=nx %}</p>
+      </div>
+      <div class="next-up__body">
+        <p class="next-up__name">{{ nx.name | strip }}</p>
+        {%- if nx.location != "" %}<p class="next-up__place">{{ nx.location }}</p>{% endif %}
+      </div>
+      {%- if nx.website != "" %}<a class="btn-outline" href="{{ nx.website }}">Event site ↗</a>{% endif %}
+    </div>
+    {%- if upcoming.size > 1 %}
+    <p class="label" style="margin:40px 0 8px">Also coming up</p>
+    <ul class="also-upcoming">
+      {%- for ev in upcoming offset: 1 %}
+      <li><span class="d">{% include event-date.html ev=ev %}</span>{% if ev.website != "" %}<a href="{{ ev.website }}">{% include event-name.html ev=ev %}</a>{% else %}{% include event-name.html ev=ev %}{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    {%- endif -%}
+    {%- else %}
+    <div class="next-up">
+      <div class="next-up__body">
+        <p class="next-up__name">Nothing booked right now.</p>
+        <p class="next-up__place">Want me on your stage? I'd love to hear about your event.</p>
+      </div>
+      <a class="btn-outline" href="{{ site.social.sessionize }}">Book a talk ↗</a>
+    </div>
+    {%- endif %}
+
+    {%- if sessions.size > 0 %}
+    <p class="label" style="margin:80px 0 8px">Talks on offer. Open one to read the abstract.</p>
+    <div class="talks">
+      {%- for s in sessions %}
+      <details class="talk"{% if forloop.first %} open{% endif %}>
+        <summary>
+          <span class="talk__num">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>
+          <span class="talk__title">{{ s.title | replace: " - ", ": " | escape }}{% if s.isWorkshop %}<span class="talk__badge">Workshop</span>{% endif %}</span>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+        </summary>
+        <div class="talk__abstract">
+          {{ s.full | markdownify }}
+          <a class="link-ink" href="{{ s.url }}">→ Full session on Sessionize</a>
         </div>
-        <div class="floor-row__aside">
-          {{ post.read_time | default: "5" }} min<br />
-          {%- if post.tags.size > 0 -%}{{ post.tags | first }}{%- else -%}Post{%- endif -%}
-        </div>
-      </a>
-    {%- endfor -%}
+      </details>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+
+    {%- if past.size > 0 %}
+    {%- assign past_years = past | group_by_exp: "ev", "ev.start | slice: 0, 4" %}
+    <p class="label" style="margin:80px 0 8px">Past stages</p>
+    {%- for g in past_years %}
+    <div class="past">
+      <span class="past__year">{{ g.name }}</span>
+      <ul class="past__list">
+        {%- for ev in g.items -%}
+        <li>{% if ev.website != "" %}<a href="{{ ev.website }}">{% include event-name.html ev=ev %}</a>{% else %}{% include event-name.html ev=ev %}{% endif %}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    {%- endfor %}
+    {%- endif %}
   </div>
 </section>
-{%- endif -%}
+
+<section class="section section--alt" id="contact" aria-labelledby="contact-title">
+  {% include die.html type="d4" lit=true %}
+  <div class="section__inner wrap" style="padding-bottom:120px">
+    <h2 class="sec-title" id="contact-title"><span class="eyebrow">04 / Get in touch</span>Contact</h2>
+    <div class="contact">
+      <div class="contact__main">
+        <p class="contact__pitch">Want me on your stage, or want to argue about AI? I'm listening.</p>
+        <ul class="contact__links">
+          <li><a href="{{ site.social.github }}"><span class="n">GitHub</span><span class="h">@MatthijsvdVeer ↗</span></a></li>
+          <li><a href="{{ site.social.linkedin }}"><span class="n">LinkedIn</span><span class="h">matthijsvanderveer ↗</span></a></li>
+          <li><a href="{{ site.social.sessionize }}"><span class="n">Sessionize</span><span class="h">book a talk ↗</span></a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}"><span class="n">RSS</span><span class="h">feed.xml ↗</span></a></li>
+        </ul>
+      </div>
+      <aside class="contact__aside">
+        <img class="portrait" src="{{ '/assets/profile-480.jpg' | relative_url }}" alt="Portrait of {{ site.author }}" width="340" height="340" loading="lazy">
+        <p class="label">Currently</p>
+        <p class="now">{{ site.currently }}</p>
+      </aside>
+    </div>
+  </div>
+</section>
