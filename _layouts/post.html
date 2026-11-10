@@ -1,26 +1,80 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  <a class="post__back" href="{{ '/' | relative_url }}">← Back to the canopy</a>
+{%- assign dice = "d20,d12,d10,d8,d6,d4" | split: "," -%}
+{%- assign die_idx = page.date | date: "%j" | modulo: 6 -%}
+{%- assign die_type = page.die | default: dice[die_idx] -%}
+{%- if page.read_time -%}
+  {%- assign minutes = page.read_time -%}
+{%- else -%}
+  {%- assign minutes = content | number_of_words | divided_by: 230 | at_least: 1 -%}
+{%- endif -%}
+{%- assign h2parts = content | split: '<h2 id="' -%}
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%B %d, %Y" }}
-      </time>
-      {%- if page.read_time -%} · {{ page.read_time }} MIN READ{%- endif -%}
-    </p>
+<article class="h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-hero">
+    {% include die.html type=die_type lit=true %}
+    <div class="post-hero__inner wrap">
+      <a class="link-ink" href="{{ '/writing/' | relative_url }}">← All posts</a>
+      <p class="post-hero__meta"><time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d.%m.%Y" }}</time> · {{ minutes }} min read</p>
+      <h1 class="post-hero__title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+      {%- if page.description %}
+      <p class="post-hero__lede p-summary" itemprop="description">{{ page.description | escape }}</p>
+      {%- endif %}
+    </div>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+  <div class="post-body wrap">
+    {%- if h2parts.size > 2 or page.code %}
+    <aside class="toc" aria-label="On this page">
+      {%- if h2parts.size > 2 %}
+      <p class="label">On this page</p>
+      <ol>
+        {%- for part in h2parts offset: 1 -%}
+        {%- assign hid = part | split: '"' | first -%}
+        {%- assign htitle = part | split: '</h2>' | first | remove_first: hid | remove_first: '">' | strip_html | strip -%}
+        <li><a href="#{{ hid }}"><span class="n">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span>{{ htitle }}</a></li>
+        {%- endfor %}
+      </ol>
+      {%- endif %}
+      {%- if page.code %}
+      <a class="link-ink" href="{{ page.code }}" style="margin-top:16px;font-size:13px">→ Code on GitHub</a>
+      {%- endif %}
+    </aside>
+    {%- endif %}
+
+    <div class="prose e-content" itemprop="articleBody">
+{{ content }}
+    </div>
   </div>
 
-  <div class="post__divider">{% include feather.html %}<hr /></div>
+  <footer class="post-end">
+    <div class="post-end__inner wrap">
+      <div class="author h-card">
+        <img class="u-photo" src="{{ '/assets/profile-480.jpg' | relative_url }}" alt="Portrait of {{ site.author }}" width="120" height="120" loading="lazy">
+        <div class="author__body">
+          <p class="label" style="font-size:13px">Written by</p>
+          <p class="author__name p-name">{{ site.author }}</p>
+          <p class="author__bio">{{ site.author_bio | escape }}</p>
+          <div class="author__links">
+            <a class="link-ink" href="{{ site.social.github }}">GitHub ↗</a>
+            <a class="link-ink" href="{{ site.social.linkedin }}">LinkedIn ↗</a>
+            <a class="link-ink" href="{{ site.social.sessionize }}">Book a talk ↗</a>
+          </div>
+        </div>
+      </div>
 
-  {% include bio.html %}
-
+      {%- if page.previous or page.next %}
+      <nav class="post-nav" aria-label="More posts">
+        {%- if page.previous %}
+        <a href="{% if page.previous.external_url %}{{ page.previous.external_url }}{% else %}{{ page.previous.url | relative_url }}{% endif %}" rel="prev"><span class="k">← Previous · {{ page.previous.date | date: "%d.%m.%Y" }}</span><span class="t">{{ page.previous.title | escape }}</span></a>
+        {%- else %}<span></span>{%- endif %}
+        {%- if page.next %}
+        <a class="next" href="{% if page.next.external_url %}{{ page.next.external_url }}{% else %}{{ page.next.url | relative_url }}{% endif %}" rel="next"><span class="k">Next · {{ page.next.date | date: "%d.%m.%Y" }} →</span><span class="t">{{ page.next.title | escape }}</span></a>
+        {%- endif %}
+      </nav>
+      {%- endif %}
+    </div>
+  </footer>
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>

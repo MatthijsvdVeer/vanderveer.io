@@ -1,0 +1,25 @@
+{%- comment -%}
+  A large faceted die drawn in SVG. Decorative only.
+  Parameters:
+    type   d4 | d6 | d8 | d10 | d12 | d20   (default d20)
+    class  extra classes for positioning, e.g. "die die--hero"
+    lit    true to light the front face in the accent colour
+{%- endcomment -%}
+{%- assign die_type = include.type | default: "d20" -%}
+{%- if include.lit -%}{%- assign front = "ac" -%}{%- else -%}{%- assign front = "g1" -%}{%- endif -%}
+<svg class="die {{ include.class }}" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+{%- case die_type -%}
+{%- when "d4" -%}
+<polygon class="g2" points="50,4 4,90 50,62"/><polygon class="g3" points="50,4 50,62 96,90"/><polygon class="{% if include.lit %}acl{% else %}g1{% endif %}" points="4,90 96,90 50,62"/>
+{%- when "d6" -%}
+<polygon class="g2" points="8.4,26 50,2 91.6,26 50,50"/><polygon class="g3" points="8.4,26 50,50 50,98 8.4,74"/><polygon class="g4" points="50,50 91.6,26 91.6,74 50,98"/>
+{%- when "d8" -%}
+<polygon class="g2" points="50,2 91.6,26 91.6,74"/><polygon class="g4" points="91.6,74 50,98 8.4,74"/><polygon class="g3" points="8.4,74 8.4,26 50,2"/><polygon class="{{ front }}" points="50,2 91.6,74 8.4,74"/>
+{%- when "d10" -%}
+<polygon class="g2" points="50,2 6,42 26,50"/><polygon class="g3" points="50,2 74,50 94,42"/><polygon class="g4" points="6,42 12,62 50,98 50,64 26,50"/><polygon class="g5" points="74,50 50,64 50,98 88,62 94,42"/><polygon class="{{ front }}" points="50,2 26,50 50,64 74,50"/>
+{%- when "d12" -%}
+<polygon class="g2" points="50,25 50,2 78.2,11.2 95.7,35.2 73.8,42.3"/><polygon class="g3" points="73.8,42.3 95.7,35.2 95.7,64.8 78.2,88.8 64.7,70.2"/><polygon class="g5" points="64.7,70.2 78.2,88.8 50,98 21.8,88.8 35.3,70.2"/><polygon class="g4" points="35.3,70.2 21.8,88.8 4.3,64.8 4.3,35.2 26.2,42.3"/><polygon class="g2" points="26.2,42.3 4.3,35.2 21.8,11.2 50,2 50,25"/><polygon class="{{ front }}" points="50,25 73.8,42.3 64.7,70.2 35.3,70.2 26.2,42.3"/>
+{%- else -%}
+<polygon class="g3" points="50,24 8.4,26 50,2"/><polygon class="g2" points="50,24 50,2 91.6,26"/><polygon class="g3" points="74,66 91.6,26 91.6,74"/><polygon class="g5" points="74,66 91.6,74 50,98"/><polygon class="g4" points="26,66 50,98 8.4,74"/><polygon class="g2" points="26,66 8.4,74 8.4,26"/><polygon class="g1" points="50,24 74,66 91.6,26"/><polygon class="g4" points="74,66 26,66 50,98"/><polygon class="g2" points="26,66 50,24 8.4,26"/><polygon class="{{ front }}" points="50,24 74,66 26,66"/>
+{%- endcase -%}
+</svg>

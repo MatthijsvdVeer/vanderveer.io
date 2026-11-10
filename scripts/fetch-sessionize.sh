@@ -7,6 +7,8 @@ set -euo pipefail
 SPEAKER_ID="${SPEAKER_ID:-32v3odtbr8}"
 URL="https://sessionize.com/api/speaker/json/${SPEAKER_ID}"
 OUT="_data/sessionize.yml"
+TMP="$(mktemp)"
+trap 'rm -f "$TMP"' EXIT
 
 curl -fsSL "$URL" | python3 -c "
 import json, sys, datetime, re
@@ -70,6 +72,8 @@ for s in sessions:
     print('    full: |')
     for line in (s['full'] or '').split('\n'):
         print('     ', line)
-" > "$OUT"
+" > "$TMP"
 
-echo \"Wrote $OUT\"
+# Only replace the snapshot once the whole fetch succeeded.
+mv "$TMP" "$OUT"
+echo "Wrote $OUT"

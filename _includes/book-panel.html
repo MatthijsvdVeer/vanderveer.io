@@ -1,0 +1,16 @@
+{%- assign _b = include.book -%}
+<div class="book-panel__top">
+  <img class="book-panel__cover" src="{{ _b.cover | relative_url }}" alt="Cover of {{ _b.title | escape }}" width="200" height="300">
+  <div class="book-panel__meta">
+    <p class="book-panel__eyebrow">{% if include.latest %}Latest on the shelf · read {% else %}Read {% endif %}{{ _b.date | date: "%m.%Y" }}</p>
+    <h3 class="book-panel__title">{{ _b.title | escape }}</h3>
+    <p class="book-panel__author">{{ _b.author | escape }}</p>
+    {%- if _b.buy %}
+    <a class="link-ink" href="{{ _b.buy }}">→ {% if _b.buy contains "libris." %}Buy at Libris{% else %}Buy this book{% endif %}</a>
+    {%- endif %}
+  </div>
+</div>
+{%- assign _note = _b.content | strip -%}
+{%- if _note != "" %}
+<div class="book-panel__note">{{ _note | markdownify }}</div>
+{%- endif %}

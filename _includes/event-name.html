@@ -1,0 +1,5 @@
+{%- comment -%} Event name without its year, plus the city when the name doesn't already say it. {%- endcomment -%}
+{%- assign _y = include.ev.start | slice: 0, 4 -%}
+{%- assign _n = include.ev.name | replace: _y, "" | split: " " | join: " " | strip -%}
+{%- assign _c = include.ev.location | split: "," | first | strip -%}
+{{- _n -}}{%- if _c != "" -%}{%- unless _n contains _c -%}, {{ _c }}{%- endunless -%}{%- endif -%}

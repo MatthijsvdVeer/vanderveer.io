@@ -9,11 +9,15 @@ permalink: /:title/
 author: "Matthijs van der Veer"
 author_bio: "Cloud & AI consultant at Xebia. Public speaker. I cut through the hype and make AI digestible for engineers and executives alike. Honestly though, I'm just here to earn the kibble for my dog."
 author_photo: /assets/profile.png
+location: "Utrecht"
+tagline: "Technology and magic, with a dash of skepticism."
+currently: "Moving away from technical How To AI presentations. I'd rather teach the general public to understand generative AI and its many challenges. Let's break through some myths together!"
 
 # Social links
 social:
   github: "https://github.com/MatthijsvdVeer"
   linkedin: "https://www.linkedin.com/in/matthijsvanderveer/"
+  sessionize: "https://sessionize.com/matthijs-van-der-veer"
 
 # Build settings
 # theme: minima
@@ -21,10 +25,6 @@ social:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-# Minima theme settings
-header_pages:
-  - about.md
 
 # Feed settings
 feed:
@@ -37,6 +37,7 @@ exclude:
   - node_modules/
   - LICENSE
   - README.md
+  - scripts/
 
 collections:
   books:

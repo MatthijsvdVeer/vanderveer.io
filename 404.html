@@ -3,7 +3,13 @@ layout: default
 title: "404: Not Found"
 permalink: /404.html
 ---
-
-<h1>404: Page Not Found</h1>
-<p>Looks like you wandered off the trail! This good boy couldn't find the page you're looking for either.</p>
-<img src="/assets/lost-dog.webp" alt="A happy dog sitting in a field of purple heather" style="max-width: 100%; height: auto; border-radius: 8px; margin-top: 1rem;" />
+<section class="lost" aria-labelledby="lost-title">
+  {% include die.html type="d6" lit=true %}
+  <div class="lost__inner wrap">
+    <a class="link-ink" href="{{ '/' | relative_url }}">← Home</a>
+    <p class="label" style="margin-top:48px">404 · Not found</p>
+    <h1 class="sec-title" id="lost-title" style="margin-top:20px;font-size:clamp(56px,10vw,144px)">Lost the trail?</h1>
+    <p class="sec-intro" style="margin-top:32px;max-width:560px;font-size:19px">Looks like you wandered off the trail! This good boy couldn't find the page you're looking for either.</p>
+    <img class="lost__img" src="{{ '/assets/lost-dog.webp' | relative_url }}" alt="A happy dog sitting in a field of purple heather" loading="lazy">
+  </div>
+</section>
