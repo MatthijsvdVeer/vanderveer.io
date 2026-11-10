@@ -16,14 +16,14 @@ layout: default
   {% include die.html type="d20" lit=true %}
   <div class="hero__inner wrap">
     <p class="hero__kicker">{{ site.author }} · {{ site.location | default: "Utrecht" }}</p>
-    <h1 class="hero__title">{{ site.tagline | default: "Technology and magic, with a dash of skepticism." }}</h1>
+    <h1 class="hero__title">{{ site.tagline }}</h1>
     <p class="hero__lede">{{ site.author_bio | escape }}</p>
   </div>
 </section>
 
 <div class="index wrap">
   <nav class="index__grid" aria-label="On this page">
-    <a class="index__item" href="#writing"><span class="index__num">01</span><span class="index__name">Writing</span><span class="index__meta">{{ site.posts.size }} posts, newest first</span></a>
+    <a class="index__item" href="#writing"><span class="index__num">01</span><span class="index__name">Writing</span><span class="index__meta">{{ site.posts.size }} opinions, newest first</span></a>
     <a class="index__item" href="#reading"><span class="index__num">02</span><span class="index__name">Reading</span><span class="index__meta">{{ books.size }} books worth circling back for</span></a>
     <a class="index__item" href="#speaking"><span class="index__num">03</span><span class="index__name">Speaking</span><span class="index__meta">{% if upcoming.size > 0 %}{% assign nx = upcoming.first %}Next: {{ nx.location | split: "," | first | strip | default: "online" }}, {{ nx.start | date: "%b %Y" }}{% else %}{{ sessions.size }} talks on offer{% endif %}</span></a>
     <a class="index__item" href="#contact"><span class="index__num">04</span><span class="index__name">Contact</span><span class="index__meta">Say hello, book a talk</span></a>
